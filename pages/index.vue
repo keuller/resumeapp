@@ -26,7 +26,7 @@
 <template>
     <div class="relative flex flex-col bg-slate-50 w-full">
         <header class="pt-2 pb-2 sticky -top-2">
-            <div class="flex justify-between items-center bg-white w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
+            <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
                 <div class="flex gap-4">
                     <div>
                         <img src="https://placehold.jp/3d4070/ffffff/150x150.png" width="70" height="70" class="rounded-full" />
@@ -47,7 +47,7 @@
             </div>
         </header>
 
-        <div class="flex flex-1 w-full lg:w-[990px] lg:mx-auto gap-4">
+        <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
@@ -121,7 +121,7 @@
                 </div>
             </aside>
 
-            <main class="flex flex-col gap-3 flex-1">
+            <main class="flex flex-col gap-3 flex-1 w-full">
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
                     <h2 class="p-3 font-semibold text-lg">EXPERIENCE</h2>
 
@@ -177,7 +177,7 @@
                     <div class="flex flex-col p-3 border-t-1">
                         <h3 class="font-bold">Project Name</h3>
                         <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                        <div class="flex gap-2 py-2">
+                        <div class="flex flex-wrap gap-2 py-2">
                             <span class="text-xs rounded-xl bg-lime-200 px-3 py-1">Express</span>
                             <span class="text-xs rounded-xl bg-lime-200 px-3 py-1">Vue</span>
                             <span class="text-xs rounded-xl bg-lime-200 px-3 py-1">TailwindCSS</span>
@@ -192,7 +192,7 @@
                     <div class="flex flex-col p-3 border-t-1">
                         <h3 class="font-bold">Project Name</h3>
                         <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                        <div class="flex gap-2 py-2">
+                        <div class="flex flex-wrap gap-2 py-2">
                             <span class="text-xs rounded-xl bg-lime-200 px-3 py-1">Express</span>
                             <span class="text-xs rounded-xl bg-lime-200 px-3 py-1">Vue</span>
                             <span class="text-xs rounded-xl bg-lime-200 px-3 py-1">TailwindCSS</span>
@@ -207,7 +207,7 @@
                     <div class="flex flex-col p-3 border-t-1">
                         <h3 class="font-bold">Project Name</h3>
                         <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                        <div class="flex gap-2 py-2">
+                        <div class="flex flex-wrap gap-2 py-2">
                             <span class="text-xs rounded-xl bg-lime-200 px-3 py-1">Koa</span>
                             <span class="text-xs rounded-xl bg-lime-200 px-3 py-1">Vue</span>
                             <span class="text-xs rounded-xl bg-lime-200 px-3 py-1">TailwindCSS</span>
@@ -221,7 +221,7 @@
             </main>
         </div>
 
-        <div class="flex items-center justify-between w-[990px] mx-auto text-center mt-4 border-t-1">
+        <div class="flex items-center justify-between w-full lg:w-[990px] mx-auto text-center mt-4 border-t-1">
             <span class="p-3 text-sm">
                 Copyright 2023. &copy;
             </span>

@@ -12,6 +12,9 @@ module.exports = {
     extend: {
         borderWidth: {
             '1': '1px'
+        },
+        screens: {
+            xs: '375px'
         }
     },
   },
