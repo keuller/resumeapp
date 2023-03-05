@@ -1,28 +1,54 @@
 <script setup lang="ts">
+    import { Client } from 'appwrite';
     import checkIcon from '~/assets/check.jpg';
     import linkedin from '~/assets/linkedin.png';
     import github from '~/assets/github.webp';
     import gitlab from '~/assets/gitlab.png';
+    import shareIcon from '~/assets/share.png';
+
+    const client = new Client();
+    client.setEndpoint('https://cloud.appwrite.io/v1').setProject('resumeapp');
+
+    let shareEnabled = false;
+    onMounted(() => {
+        shareEnabled = ("share" in navigator);
+    });
+
+    const doShare = async () => {
+        const shareLink = {
+            title: 'Abdoral Resume',
+            url: 'https://resume.app/abdoral.gusmao'
+        }
+        await navigator.share(shareLink);
+    }
 </script>
 
 <template>
     <div class="relative flex flex-col bg-slate-50 w-full">
         <header class="pt-2 pb-2 sticky -top-2">
-            <div class="flex gap-4 items-center bg-white w-[990px] mx-auto rounded-md px-4 py-2 shadow-md">
-                <div>
-                    <img src="https://placehold.jp/3d4070/ffffff/150x150.png" width="70" height="70" class="rounded-full" />
+            <div class="flex justify-between items-center bg-white w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
+                <div class="flex gap-4">
+                    <div>
+                        <img src="https://placehold.jp/3d4070/ffffff/150x150.png" width="70" height="70" class="rounded-full" />
+                    </div>
+
+                    <div class="flex flex-col tracking-wide">
+                        <span>Abdoral Gusmao</span>
+                        <span>Sr. Software Engineer</span>
+                        <span>abdoral.gusmao@gmail.com</span>
+                    </div>
                 </div>
 
-                <div class="flex flex-col tracking-wide">
-                    <span>Abdoral Gusmao</span>
-                    <span>Sr. Software Engineer</span>
-                    <span>abdoral.gusmao@gmail.com</span>
+                <div class="block">
+                    <a v-if="shareEnabled" href="#" title="Share" @click.prevent="doShare">
+                        <img :src="shareIcon" width="22" alt="share" />
+                    </a>
                 </div>
             </div>
         </header>
 
-        <div class="flex flex-1 w-[990px] mx-auto gap-4">
-            <aside class="w-72">
+        <div class="flex flex-1 w-full lg:w-[990px] lg:mx-auto gap-4">
+            <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
                         <h2 class="font-bold text-base p-1">Interest</h2>

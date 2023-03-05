@@ -1,4 +1,4 @@
-import vsharp from 'vite-plugin-vsharp';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -19,7 +19,9 @@ export default defineNuxtConfig({
     },
 
     vite: {
-        plugins: [vsharp()]
+        plugins: [
+            ViteImageOptimizer()
+        ]
     },
 
     postcss: {
