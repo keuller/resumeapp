@@ -1,0 +1,237 @@
+<script setup lang="ts">
+    import { Client } from 'appwrite';
+    const route = useRoute();
+    import linkedin from '~/assets/linkedin.png';
+    import github from '~/assets/github.webp';
+    import gitlab from '~/assets/gitlab.png';
+    import shareIcon from '~/assets/share.png';
+    import editIcon from '~/assets/edit.svg';
+
+    const client = new Client();
+    client.setEndpoint('https://cloud.appwrite.io/v1').setProject('resumeapp');
+
+    const slug = route.params.slug ?? '';
+    const firstName = ref<string>('');
+    const lastName = ref<string>('');
+    let shareEnabled = true;
+
+    function capitalize(v: string | undefined): string {
+        if (!v) return 'Smith';
+        const first = v.charAt(0);
+        return `${first.toUpperCase()}${v.substring(1)}`;
+    }
+
+    onMounted(() => {
+        const values = (slug as string).split('.');
+        firstName.value = values[0];
+        lastName.value = values[1];
+    });
+
+    const doShare = async () => {
+        const shareLink = {
+            title: 'CV Abdoral Gusmao',
+            url: 'https://getrezume.com/abdoral.gusmao'
+        }
+        await navigator.share(shareLink);
+    }
+</script>
+
+<template>
+    <div class="relative flex flex-col bg-slate-50 w-full">
+        <header class="lg:pt-2 pb-2 sticky -top-2">
+            <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
+                <div class="flex flex-col gap-4">
+
+                    <div class="flex gap-4">
+                        <img src="https://placehold.jp/3d4070/ffffff/150x150.png" alt="avatar" width="70" height="70" class="rounded-full" />
+
+                        <div class="flex flex-col tracking-wide">
+                            <span class="font-semibold">{{ capitalize(firstName) }} {{ capitalize(lastName) }}</span>
+                            <span class="text-base">Sr. Software Engineer</span>
+                            <span class="text-sm text-slate-500">{{ firstName }}.{{ lastName ?? 'smith' }}@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="items-center justify-end gap-2 w-full hidden">
+                        <div class="bg-slate-200 text-xs rounded-full p-2">
+                            PT
+                        </div>
+                        <div class="bg-slate-200 text-xs rounded-full p-2">
+                            EN
+                        </div>
+                        <div class="bg-slate-200 text-xs rounded-full p-2">
+                            DE
+                        </div>
+                        <div class="bg-slate-200 text-xs rounded-full p-2">
+                            FR
+                        </div>
+                        <div class="bg-slate-200 text-xs rounded-full p-2">
+                            ES
+                        </div>
+                        <div class="flex items-center bg-slate-200 text-xs rounded-full p-2">
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <a v-if="shareEnabled" href="#" title="Share" @click.prevent="doShare">
+                        <img :src="shareIcon" width="22" height="22" alt="share" />
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
+            <aside class="w-72 hidden lg:block">
+                <div class="flex flex-col gap-2 bg-slate-100p-2">
+                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                        <h2 class="font-bold text-base p-1">Interest</h2>
+                        <ul class="flex flex-col gap-1 pb-2">
+                            <InterestItem name="Web Development" />
+                            <InterestItem name="Mobile Development" />
+                            <InterestItem name="Cloud Development" />
+                            <InterestItem name="Microservices" />
+                            <InterestItem name="AI/ML" />
+                        </ul>
+                    </div>
+
+                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                        <h2 class="font-bold text-base p-1">Social Midias</h2>
+                        <ul class="flex px-1 gap-2 pb-2">
+                            <li class="text-sm">
+                                <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
+                            </li>
+                            <li class="text-sm">
+                                <img :src="github" class="h-8 w-8" alt="github"/>
+                            </li>
+                            <li class="text-sm">
+                                <img :src="gitlab" class="h-8 w-8" alt="gitlab"/>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                        <h2 class="font-bold text-base p-1">Skills</h2>
+                        <ul class="flex flex-col gap-2 pb-2">
+                            <SkillItem name="Koa/Express" :value="5" />
+
+                            <SkillItem name="Vue3/Nuxt3" :value="4" />
+
+                            <SkillItem name="TailwindCSS" :value="3" />
+
+                            <SkillItem name="React/NextJS" :value="3" />
+
+                            <SkillItem name="Docker" :value="5" />
+
+                            <SkillItem name="MongoDB" :value="4" />
+
+                            <SkillItem name="PostgreSQL" :value="4" />
+                        </ul>
+                    </div>
+
+                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                        <h2 class="font-bold text-base py-1">Languages</h2>
+                        <ul class="flex flex-col gap-2 pb-2">
+                            <LangItem name="Portugues" :value="5" />
+                            <LangItem name="English" :value="3" />
+                            <LangItem name="French" :value="1" />
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="flex flex-col gap-3 flex-1 w-full">
+                <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
+                    <div class="flex items-center justify-between">
+                        <h2 class="p-3 font-semibold text-lg">EXPERIENCE</h2>
+                        <a href="#" class="hidden">
+                            <img :src="editIcon" width="16" height="16" alt="Edit" title="Edit" />
+                        </a>
+                    </div>
+
+                    <ExperienceItem company="Acme Inc"
+                        job="Engineer Manager"
+                        period="May 2023 - Current"
+                        model="Full-time" />
+
+                    <ExperienceItem company="Acme Inc"
+                        job="Tech Lead"
+                        period="Feb 2022 - May 2023"
+                        model="Full-time" />
+
+                    <ExperienceItem company="Activate Inc"
+                        job="Senior Engineer"
+                        period="Jan 2021 - May 2022"
+                        model="Full-time" />
+
+                    <ExperienceItem company="Woods Inc"
+                        job="Software Engineer"
+                        period="Apr 2020 - Apr 2021"
+                        model="Full-time" />
+
+                    <ExperienceItem company="ShowBox Co"
+                        job="Software Engineer"
+                        period="Jan 2018 - Apr 2020"
+                        model="Full-time" />
+                </section>
+
+                <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
+                    <h2 class="p-3 font-semibold text-lg">PROJECTS</h2>
+
+                    <div class="flex flex-col p-3 border-t-1">
+                        <h3 class="font-bold">Project Name</h3>
+                        <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                        <div class="flex flex-wrap gap-2 py-2">
+                            <Badge name="Express" />
+                            <Badge name="Vue" />
+                            <Badge name="TailwindCSS" />
+                            <Badge name="Nuxt3" />
+                            <Badge name="MongoDB" />
+                            <Badge name="Cognito" />
+                            <Badge name="SES" />
+                            <Badge name="S3" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col p-3 border-t-1">
+                        <h3 class="font-bold">Project Name</h3>
+                        <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                        <div class="flex flex-wrap gap-2 py-2">
+                            <Badge name="Fastify" />
+                            <Badge name="Svelte" />
+                            <Badge name="TailwindCSS" />
+                            <Badge name="Postgres" />
+                            <Badge name="Coginito" />
+                            <Badge name="Docker" />
+                            <Badge name="S3" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col p-3 border-t-1">
+                        <h3 class="font-bold">Project Name</h3>
+                        <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                        <div class="flex flex-wrap gap-2 py-2">
+                            <Badge name="Koa" />
+                            <Badge name="Vue" />
+                            <Badge name="TailwindCSS" />
+                            <Badge name="Firebase" />
+                            <Badge name="MySQL" />
+                            <Badge name="TypeORM" />
+                            <Badge name="Docker" />
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <div class="flex items-center justify-between w-full lg:w-[990px] mx-auto text-center mt-4 border-t-1">
+            <span class="p-3 text-sm">
+                Copyright 2023. &copy;
+            </span>
+            <span class="p-3 text-sm">
+            Made with love!</span>
+        </div>
+    </div>
+
+</template>
