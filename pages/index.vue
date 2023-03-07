@@ -84,13 +84,13 @@
                         <h2 class="font-bold text-base p-1">Social Midias</h2>
                         <ul class="flex px-1 gap-2 pb-2">
                             <li class="text-sm">
-                                <img :src="linkedin" class="h-8 w-8" />
+                                <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
                             </li>
                             <li class="text-sm">
-                                <img :src="github" class="h-8 w-8" />
+                                <img :src="github" class="h-8 w-8" alt="github"/>
                             </li>
                             <li class="text-sm">
-                                <img :src="gitlab" class="h-8 w-8" />
+                                <img :src="gitlab" class="h-8 w-8" alt="gitlab"/>
                             </li>
                         </ul>
                     </div>
