@@ -13,8 +13,8 @@
 
     const doShare = async () => {
         const shareLink = {
-            title: 'Abdoral Resume',
-            url: 'https://resume.app/abdoral.gusmao'
+            title: 'CV Abdoral Gusmao',
+            url: 'https://getrezume.com/abdoral.gusmao'
         }
         await navigator.share(shareLink);
     }
@@ -22,7 +22,7 @@
 
 <template>
     <div class="relative flex flex-col bg-slate-50 w-full">
-        <header class="pt-2 pb-2 sticky -top-2">
+        <header class="lg:pt-2 pb-2 sticky -top-2">
             <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
                 <div class="flex flex-col gap-4">
 
