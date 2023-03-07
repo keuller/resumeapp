@@ -29,8 +29,8 @@
 
     const doShare = async () => {
         const shareLink = {
-            title: 'CV Abdoral Gusmao',
-            url: 'https://getrezume.com/abdoral.gusmao'
+            title: `CV ${capitalize(firstName.value)} ${capitalize(lastName.value)}`,
+            url: `https://getrezume.com/${slug}`
         }
         await navigator.share(shareLink);
     }
@@ -47,7 +47,7 @@
 
                         <div class="flex flex-col tracking-wide">
                             <span class="font-semibold">{{ capitalize(firstName) }} {{ capitalize(lastName) }}</span>
-                            <span class="text-base">Sr. Software Engineer</span>
+                            <span class="text-base">Sr. Software Engineer | Engineer Manager</span>
                             <span class="text-sm text-slate-500">{{ firstName }}.{{ lastName ?? 'smith' }}@gmail.com</span>
                         </div>
                     </div>
