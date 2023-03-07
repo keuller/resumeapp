@@ -22,8 +22,8 @@
 <li v-once class="px-1">
     <span class="text-sm tracking-wider">{{ props.name }}</span>
     <div class="flex gap-1">
-        <img v-for="(_, key) in props.value" :key="key" :src="starYellow" width="18" height="18" />
-        <img v-for="(_, key2) in blacks" :key="key2" :src="starBlack" width="18" height="18" />
+        <img v-for="(_, key) in props.value" :key="key" :src="starYellow" width="18" height="18" alt="starYellow"/>
+        <img v-for="(_, key2) in blacks" :key="key2" :src="starBlack" width="18" height="18" alt="starBlack"/>
     </div>
 </li>
 </template>

@@ -22,6 +22,6 @@
 <template>
     <li v-once class="flex flex-col">
         <span class="text-sm">{{ props.name }}</span>
-        <span class="text-sm text-slate-400">{{ values[props.value] }}</span>
+        <span class="text-sm text-slate-500">{{ values[props.value] }}</span>
     </li>
 </template>

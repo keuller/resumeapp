@@ -11,7 +11,7 @@ const props = defineProps({
 
 <template>
     <li v-once class="flex items-center gap-1">
-        <img :src="checkIcon" class="h-4 w-4" />
+        <img :src="checkIcon" class="h-4 w-4" alt="check-icon"/>
         <span class="pl-2 text-sm">{{ props.name }}</span>
     </li>
 </template>
