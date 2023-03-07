@@ -8,11 +8,16 @@ export default defineNuxtConfig({
     app: {
         head: {
             charset: 'utf-8',
-		        viewport: 'width=device-width, initial-scale=1.0, viewport-fit=cover',
-            title: 'Resume',
+            title: 'Get Rezume',
             htmlAttrs: {
-                lang: 'en'
-            }
+                lang: 'en',
+            },
+            meta: [
+                { name: "viewport", content: "width=device-width, initial-scale=1.0, viewport-fit=cover" },
+                { name: "description", content: "Get Your Resume" }
+            ],
+            link: [],
+            script: []
         },
         rootId: "_app",
         buildAssetsDir: "static",
@@ -22,6 +27,10 @@ export default defineNuxtConfig({
         plugins: [
             ViteImageOptimizer()
         ]
+    },
+
+    experimental: {
+        componentIslands: true
     },
 
     postcss: {
@@ -40,5 +49,9 @@ export default defineNuxtConfig({
     },
 
     runtimeConfig: {
-    }
+    },
+
+    modules: [
+        ['@nuxtjs/robots', {}]
+    ],
 });

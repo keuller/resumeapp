@@ -4,14 +4,12 @@
     import github from '~/assets/github.webp';
     import gitlab from '~/assets/gitlab.png';
     import shareIcon from '~/assets/share.png';
+    import editIcon from '~/assets/edit.svg';
 
     const client = new Client();
     client.setEndpoint('https://cloud.appwrite.io/v1').setProject('resumeapp');
 
-    let shareEnabled = false;
-    onMounted(() => {
-        shareEnabled = ("share" in navigator);
-    });
+    let shareEnabled = true;
 
     const doShare = async () => {
         const shareLink = {
@@ -26,21 +24,43 @@
     <div class="relative flex flex-col bg-slate-50 w-full">
         <header class="pt-2 pb-2 sticky -top-2">
             <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
-                <div class="flex gap-4">
-                    <div>
-                        <img src="https://placehold.jp/3d4070/ffffff/150x150.png" width="70" height="70" class="rounded-full" />
+                <div class="flex flex-col gap-4">
+
+                    <div class="flex gap-4">
+                        <img src="https://placehold.jp/3d4070/ffffff/150x150.png" alt="avatar" width="70" height="70" class="rounded-full" />
+
+                        <div class="flex flex-col tracking-wide">
+                            <span class="font-semibold">Abdoral Gusmao</span>
+                            <span class="text-base">Sr. Software Engineer</span>
+                            <span class="text-sm text-slate-500">abdoral.gusmao@gmail.com</span>
+                        </div>
                     </div>
 
-                    <div class="flex flex-col tracking-wide">
-                        <span class="font-semibold">Abdoral Gusmao</span>
-                        <span class="text-base">Sr. Software Engineer</span>
-                        <span class="text-sm text-slate-500">abdoral.gusmao@gmail.com</span>
+                    <div class="items-center justify-end gap-2 w-full hidden">
+                        <div class="bg-slate-200 text-xs rounded-full p-2">
+                            PT
+                        </div>
+                        <div class="bg-slate-200 text-xs rounded-full p-2">
+                            EN
+                        </div>
+                        <div class="bg-slate-200 text-xs rounded-full p-2">
+                            DE
+                        </div>
+                        <div class="bg-slate-200 text-xs rounded-full p-2">
+                            FR
+                        </div>
+                        <div class="bg-slate-200 text-xs rounded-full p-2">
+                            ES
+                        </div>
+                        <div class="flex items-center bg-slate-200 text-xs rounded-full p-2">
+                            ...
+                        </div>
                     </div>
                 </div>
 
                 <div class="block">
                     <a v-if="shareEnabled" href="#" title="Share" @click.prevent="doShare">
-                        <img :src="shareIcon" width="22" alt="share" />
+                        <img :src="shareIcon" width="22" height="22" alt="share" />
                     </a>
                 </div>
             </div>
@@ -61,7 +81,7 @@
                     </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base p-1">Networks</h2>
+                        <h2 class="font-bold text-base p-1">Social Midias</h2>
                         <ul class="flex px-1 gap-2 pb-2">
                             <li class="text-sm">
                                 <img :src="linkedin" class="h-8 w-8" />
@@ -97,7 +117,7 @@
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
                         <h2 class="font-bold text-base py-1">Languages</h2>
                         <ul class="flex flex-col gap-2 pb-2">
-                            <LangItem name="Portugues" :value="4" />
+                            <LangItem name="Portugues" :value="5" />
                             <LangItem name="English" :value="3" />
                             <LangItem name="French" :value="1" />
                         </ul>
@@ -107,7 +127,12 @@
 
             <main class="flex flex-col gap-3 flex-1 w-full">
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
-                    <h2 class="p-3 font-semibold text-lg">EXPERIENCE</h2>
+                    <div class="flex items-center justify-between">
+                        <h2 class="p-3 font-semibold text-lg">EXPERIENCE</h2>
+                        <a href="#" class="hidden">
+                            <img :src="editIcon" width="16" height="16" alt="Edit" title="Edit" />
+                        </a>
+                    </div>
 
                     <ExperienceItem company="Acme Inc"
                         job="Engineer Manager"

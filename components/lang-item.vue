@@ -3,7 +3,8 @@
         1: 'Beginner',
         2: 'Intermediate',
         3: 'Advanced',
-        4: 'Fluent'
+        4: 'Fluent',
+        5: 'Native'
     }
 
     const props = defineProps({
@@ -19,8 +20,8 @@
 </script>
 
 <template>
-<li class="flex flex-col">
-    <span class="text-sm">{{ props.name }}</span>
-    <span class="text-sm text-slate-400">{{ values[props.value] }}</span>
-</li>
+    <li v-once class="flex flex-col">
+        <span class="text-sm">{{ props.name }}</span>
+        <span class="text-sm text-slate-400">{{ values[props.value] }}</span>
+    </li>
 </template>

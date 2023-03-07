@@ -19,7 +19,7 @@
 </script>
 
 <template>
-<li class="px-1">
+<li v-once class="px-1">
     <span class="text-sm tracking-wider">{{ props.name }}</span>
     <div class="flex gap-1">
         <img v-for="(_, key) in props.value" :key="key" :src="starYellow" width="18" height="18" />

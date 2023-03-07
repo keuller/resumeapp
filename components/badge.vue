@@ -8,5 +8,5 @@ const props = defineProps({
 </script>
 
 <template>
-    <span class="text-xs rounded-xl bg-indigo-200 px-3 py-1">{{ props.name }}</span>
+    <span v-once class="text-xs rounded-xl bg-indigo-200 px-3 py-1">{{ props.name }}</span>
 </template>

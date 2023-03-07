@@ -9,9 +9,8 @@ const props = defineProps({
 })
 </script>
 
-
 <template>
-    <li class="flex items-center gap-1">
+    <li v-once class="flex items-center gap-1">
         <img :src="checkIcon" class="h-4 w-4" />
         <span class="pl-2 text-sm">{{ props.name }}</span>
     </li>
