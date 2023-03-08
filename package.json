@@ -10,7 +10,7 @@
   },
   "packageManager": "pnpm@2.29.0",
   "engines": {
-    "node": ">= 16.15.0"
+    "node": ">= 16"
   },
   "devDependencies": {
     "@nuxtjs/robots": "^3.0.0",
