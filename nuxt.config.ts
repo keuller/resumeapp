@@ -50,6 +50,7 @@ export default defineNuxtConfig({
     },
 
     runtimeConfig: {
+        devApiKey: process.env.DEV_API_KEY
     },
 
     appConfig: {

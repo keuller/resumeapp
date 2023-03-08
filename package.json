@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@vercel/node": "^2.9.12",
-    "firebase": "^9.17.2"
+    "firebase": "^9.17.2",
+    "node-appwrite": "^8.2.0"
   }
 }
