@@ -51,6 +51,10 @@ export default defineNuxtConfig({
     runtimeConfig: {
     },
 
+    appConfig: {
+        prj: '',
+    },
+
     modules: [
         ['@nuxtjs/robots', {}]
     ],

@@ -1,36 +1,25 @@
 <script setup lang="ts">
-    import { Client } from 'appwrite';
-    const route = useRoute();
+    import { usePeople } from '~/composables/use-people';
     import linkedin from '~/assets/linkedin.png';
     import github from '~/assets/github.webp';
     import gitlab from '~/assets/gitlab.png';
     import shareIcon from '~/assets/share.png';
     import editIcon from '~/assets/edit.svg';
+    import heartIcon from '~/assets/heart-icon.png';
 
-    const client = new Client();
-    client.setEndpoint('https://cloud.appwrite.io/v1').setProject('resumeapp');
+    const people = usePeople();
+    const route = useRoute();
 
-    const slug = route.params.slug ?? '';
-    const firstName = ref<string>('');
-    const lastName = ref<string>('');
-    let shareEnabled = true;
+    await people.findPerson(route.params.slug as string);
 
-    function capitalize(v: string | undefined): string {
-        if (!v) return 'Smith';
-        const first = v.charAt(0);
-        return `${first.toUpperCase()}${v.substring(1)}`;
+    if (!people.person.email || people.person.email ===  '') {
+        await navigateTo('/404');
     }
-
-    onMounted(() => {
-        const values = (slug as string).split('.');
-        firstName.value = values[0];
-        lastName.value = values[1];
-    });
 
     const doShare = async () => {
         const shareLink = {
-            title: `CV ${capitalize(firstName.value)} ${capitalize(lastName.value)}`,
-            url: `https://getrezume.com/${slug}`
+            title: `CV ${people.person.firstName} ${people.person.lastName}`,
+            url: `https://getrezume.com/${route.params.slug}`
         }
         await navigator.share(shareLink);
     }
@@ -43,12 +32,13 @@
                 <div class="flex flex-col gap-4">
 
                     <div class="flex gap-4">
-                        <img src="https://placehold.jp/3d4070/ffffff/150x150.png" alt="avatar" width="70" height="70" class="rounded-full" />
+                        <img src="https://placehold.jp/3d4070/ffffff/150x150.png"
+                            alt="avatar" width="64" height="64" class="rounded-full h-16 w-16" />
 
                         <div class="flex flex-col tracking-wide">
-                            <span class="font-semibold">{{ capitalize(firstName) }} {{ capitalize(lastName) }}</span>
-                            <span class="text-base">Sr. Software Engineer | Engineer Manager</span>
-                            <span class="text-sm text-slate-500">{{ firstName }}.{{ lastName ?? 'smith' }}@gmail.com</span>
+                            <span class="font-semibold">{{ people.person.firstName }} {{ people.person.lastName }}</span>
+                            <span class="text-base">{{ people.person.jobTitle }}</span>
+                            <span class="text-sm text-slate-500">{{ people.person.email }}</span>
                         </div>
                     </div>
 
@@ -75,7 +65,7 @@
                 </div>
 
                 <div class="block">
-                    <a v-if="shareEnabled" href="#" title="Share" @click.prevent="doShare">
+                    <a href="#" title="Share" @click.prevent="doShare">
                         <img :src="shareIcon" width="22" height="22" alt="share" />
                     </a>
                 </div>
@@ -85,17 +75,6 @@
         <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
-                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base p-1">Interest</h2>
-                        <ul class="flex flex-col gap-1 pb-2">
-                            <InterestItem name="Web Development" />
-                            <InterestItem name="Mobile Development" />
-                            <InterestItem name="Cloud Development" />
-                            <InterestItem name="Microservices" />
-                            <InterestItem name="AI/ML" />
-                        </ul>
-                    </div>
-
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
                         <h2 class="font-bold text-base p-1">Social Midias</h2>
                         <ul class="flex px-1 gap-2 pb-2">
@@ -108,6 +87,17 @@
                             <li class="text-sm">
                                 <img :src="gitlab" class="h-8 w-8" alt="gitlab"/>
                             </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                        <h2 class="font-bold text-base p-1">Interest</h2>
+                        <ul class="flex flex-col gap-1 pb-2">
+                            <InterestItem name="Web Development" />
+                            <InterestItem name="Mobile Development" />
+                            <InterestItem name="Cloud Development" />
+                            <InterestItem name="Microservices" />
+                            <InterestItem name="AI/ML" />
                         </ul>
                     </div>
 
@@ -225,12 +215,13 @@
             </main>
         </div>
 
-        <div class="flex items-center justify-between w-full lg:w-[990px] mx-auto text-center mt-4 border-t-1">
-            <span class="p-3 text-sm">
+        <div class="flex items-center justify-between w-full lg:w-[990px] mx-auto text-center mt-6 py-2 border-t-1">
+            <span class="p-3 text-sm text-slate-400">
                 Copyright 2023. &copy;
             </span>
-            <span class="p-3 text-sm">
-            Made with love!</span>
+            <span class="inline-flex gap-1 text-slate-400 p-3 text-sm">
+            Made with <img :src="heartIcon" alt="heart" width="18" height="18" />
+            </span>
         </div>
     </div>
 
