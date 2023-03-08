@@ -12,7 +12,7 @@
 
     await people.findPerson(route.params.slug as string);
 
-    if (!people.person.email || people.person.email ===  '') {
+    if(people.person.email ===  '') {
         await navigateTo('/404');
     }
 
@@ -25,6 +25,11 @@
             await navigator.share(shareLink);
         }
     }
+
+    const showMedias = computed(() => {
+        const { github, gitlab, linkedin } = people.person;
+        return (github !== '' || gitlab !== '' || linkedin !== '');
+    });
 </script>
 
 <template>
@@ -33,7 +38,7 @@
             <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
                 <div class="flex flex-col gap-4">
                     <div class="flex gap-4 items-center">
-                        <img src="https://placehold.jp/3d4070/ffffff/150x150.png"
+                        <img :src="people.person.avatar"
                             alt="avatar" width="64" height="64" class="rounded-full h-16 w-16" />
 
                         <div class="flex flex-col tracking-wide">
@@ -76,17 +81,23 @@
         <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
-                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                    <div v-if="showMedias" class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
                         <h2 class="font-bold text-base p-1">Social Midias</h2>
                         <ul class="flex px-1 gap-2 pb-2">
-                            <li class="text-sm">
-                                <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
+                            <li v-if="people.person.linkedin !== ''" class="text-sm">
+                                <a :href="people.person.linkedin" target="_new" class="outline-none">
+                                    <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
+                                </a>
                             </li>
-                            <li class="text-sm">
-                                <img :src="github" class="h-8 w-8" alt="github"/>
+                            <li v-if="people.person.github !== ''" class="text-sm">
+                                <a :href="people.person.github" class="outline-none" target="_new">
+                                    <img :src="github" class="h-8 w-8" alt="github"/>
+                                </a>
                             </li>
-                            <li class="text-sm">
-                                <img :src="gitlab" class="h-8 w-8" alt="gitlab"/>
+                            <li v-if="people.person.gitlab !== ''" class="text-sm">
+                                <a :href="people.person.gitlab" class="outline-none" target="_new">
+                                    <img :src="gitlab" class="h-8 w-8" alt="gitlab"/>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -135,7 +146,7 @@
             <main class="flex flex-col gap-3 flex-1 w-full">
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
                     <div class="flex items-center justify-between">
-                        <h2 class="p-3 font-semibold text-lg">EXPERIENCE</h2>
+                        <h2 class="p-3 font-semibold text-lg">EXPERIENCES</h2>
                         <a href="#" class="hidden">
                             <img :src="editIcon" width="16" height="16" alt="Edit" title="Edit" />
                         </a>

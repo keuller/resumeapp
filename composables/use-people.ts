@@ -1,12 +1,15 @@
 
-import { getPeople } from '~/lib/people.service';
+import { getPeople, type Person } from '~/lib/people.service';
 
-const person = reactive({
+const person = reactive<Person>({
     firstName: '',
     lastName: '',
     email: '',
     avatar: '',
-    jobTitle: ''
+    jobTitle: '',
+    github: '',
+    gitlab: '',
+    linkedin: ''
 });
 
 export function usePeople() {
@@ -18,6 +21,9 @@ export function usePeople() {
         person.jobTitle = data.jobTitle;
         person.firstName = data.firstName;
         person.lastName = data.lastName;
+        person.github = data.github ?? '';
+        person.gitlab = data.gitlab ?? '';
+        person.linkedin = data.linkedin ?? '';
     }
 
     return {

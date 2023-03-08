@@ -6,7 +6,10 @@ export type Person = {
     avatar: string,
     jobTitle: string,
     firstName: string,
-    lastName: string
+    lastName: string,
+    github: string,
+    gitlab: string,
+    linkedin: string
 }
 
 export function addPeople(data: Record<string, unknown>): Promise<void> {
@@ -26,6 +29,9 @@ export function getPeople(slug: string): Promise<Person> {
             lastName: res.documents[0].last_name,
             jobTitle: res.documents[0].job_title,
             avatar: res.documents[0].avatar,
+            github: res.documents[0].github,
+            gitlab: res.documents[0].gitlab,
+            linkedin: res.documents[0].linkedin,
         } satisfies Person;
     })
     .catch(err => {
