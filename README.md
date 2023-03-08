@@ -6,6 +6,10 @@ Resume app generator
 Make sure to install the dependencies:
 
 ```bash
+pnpm i -g vercel@latest
+```
+
+```bash
 # npm
 npm install
 

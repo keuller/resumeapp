@@ -9,6 +9,9 @@
     "serve": "node ./.output/server/index.mjs"
   },
   "packageManager": "pnpm@2.29.0",
+  "engines": {
+    "node": ">= 16.15.0"
+  },
   "devDependencies": {
     "@nuxtjs/robots": "^3.0.0",
     "autoprefixer": "^10.4.13",
@@ -20,6 +23,7 @@
     "vite-plugin-image-optimizer": "^1.1.0"
   },
   "dependencies": {
+    "@vercel/node": "^2.9.12",
     "firebase": "^9.17.2"
   }
 }
