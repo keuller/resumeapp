@@ -7,14 +7,16 @@
     import editIcon from '~/assets/edit.svg';
     import heartIcon from '~/assets/heart-icon.png';
 
-    const people = usePeople();
+    definePageMeta({
+        validate: async ({ params }) => {
+            const peopleSvc = usePeople();
+            await peopleSvc.findPerson(params.slug as string);
+            return (peopleSvc.person.email !== '');
+        }
+    })
+
     const route = useRoute();
-
-    await people.findPerson(route.params.slug as string);
-
-    if(people.person.email ===  '') {
-        await navigateTo('/404');
-    }
+    const people = usePeople();
 
     const doShare = async () => {
         const shareLink = {
