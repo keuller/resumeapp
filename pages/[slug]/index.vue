@@ -7,30 +7,31 @@
     import editIcon from '~/assets/edit.svg';
     import heartIcon from '~/assets/heart-icon.png';
 
-    definePageMeta({
-        validate: async ({ params }) => {
-            const peopleSvc = usePeople();
-            await peopleSvc.findPerson(params.slug as string);
-            return (peopleSvc.person.email !== '');
-        }
-    });
+    // definePageMeta({
+    //     validate: async ({ params }) => {
+    //         const peopleSvc = usePeople();
+    //         await peopleSvc.findPerson(params.slug as string);
+    //         return (peopleSvc.person.email !== '');
+    //     }
+    // });
 
     const route = useRoute();
     const people = usePeople();
 
     const doShare = async () => {
-        const shareLink = {
-            title: `CV ${people.person.firstName} ${people.person.lastName}`,
-            url: `https://getrezume.com/${route.params.slug}`
-        }
-        if ("share" in navigator) {
-            await navigator.share(shareLink);
-        }
+        // const shareLink = {
+        //     title: `CV ${people.person.firstName} ${people.person.lastName}`,
+        //     url: `https://getrezume.com/${route.params.slug}`
+        // }
+        // if ("share" in navigator) {
+        //     await navigator.share(shareLink);
+        // }
     }
 
     const showMedias = computed(() => {
-        const { github, gitlab, linkedin } = people.person;
-        return (github !== '' || gitlab !== '' || linkedin !== '');
+        // const { github, gitlab, linkedin } = people.person;
+        // return (github !== '' || gitlab !== '' || linkedin !== '');
+        return true;
     });
 </script>
 
@@ -40,13 +41,13 @@
             <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
                 <div class="flex flex-col gap-4">
                     <div class="flex gap-4 items-center">
-                        <img :src="people.person.avatar"
+                        <img src="people.person.avatar"
                             alt="avatar" width="64" height="64" class="rounded-full h-16 w-16" />
 
                         <div class="flex flex-col tracking-wide">
-                            <span class="font-semibold">{{ people.person.firstName }} {{ people.person.lastName }}</span>
-                            <span class="text-base">{{ people.person.jobTitle }}</span>
-                            <span class="text-sm text-slate-500">{{ people.person.email }}</span>
+                            <span class="font-semibold">Abdoral Gusmao</span>
+                            <span class="text-base">Sr Software Engineer</span>
+                            <span class="text-sm text-slate-500">abdoral.gusmao@outlook.com</span>
                         </div>
                     </div>
 
@@ -83,21 +84,21 @@
         <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
-                    <div v-if="showMedias" class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                    <div  class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
                         <h2 class="font-bold text-base p-1">Social Medias</h2>
                         <ul class="flex px-1 gap-2 pb-2">
-                            <li v-if="people.person.linkedin !== ''" class="text-sm">
-                                <a :href="people.person.linkedin" target="_new" class="outline-none">
+                            <li class="text-sm">
+                                <a href="#" target="_new" class="outline-none">
                                     <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
                                 </a>
                             </li>
-                            <li v-if="people.person.github !== ''" class="text-sm">
-                                <a :href="people.person.github" class="outline-none" target="_new">
+                            <li class="text-sm">
+                                <a href="#" class="outline-none" target="_new">
                                     <img :src="github" class="h-8 w-8" alt="github"/>
                                 </a>
                             </li>
-                            <li v-if="people.person.gitlab !== ''" class="text-sm">
-                                <a :href="people.person.gitlab" class="outline-none" target="_new">
+                            <li class="text-sm">
+                                <a href="#" class="outline-none" target="_new">
                                     <img :src="gitlab" class="h-8 w-8" alt="gitlab"/>
                                 </a>
                             </li>

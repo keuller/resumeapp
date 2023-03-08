@@ -52,7 +52,6 @@ export default defineNuxtConfig({
     },
 
     appConfig: {
-        prj: '',
     },
 
     modules: [

@@ -20,6 +20,6 @@
     "vite-plugin-image-optimizer": "^1.1.0"
   },
   "dependencies": {
-    "appwrite": "^10.2.0"
+    "firebase": "^9.17.2"
   }
 }
