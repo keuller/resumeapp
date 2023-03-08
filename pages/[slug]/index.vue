@@ -13,7 +13,7 @@
             await peopleSvc.findPerson(params.slug as string);
             return (peopleSvc.person.email !== '');
         }
-    })
+    });
 
     const route = useRoute();
     const people = usePeople();

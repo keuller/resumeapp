@@ -1,6 +1,8 @@
 import { getDb, DB_NAME } from './service';
 import { Query } from 'appwrite';
 
+const COLLECTION = '640475a2a7b08deb0966';
+
 export type Person = {
     email: string,
     avatar: string,
@@ -12,14 +14,10 @@ export type Person = {
     linkedin: string
 }
 
-export function addPeople(data: Record<string, unknown>): Promise<void> {
-    return getDb().createDocument(DB_NAME, '640475a2a7b08deb0966', 'doc_id', data)
-        .then(res => console.log(res))
-        .catch(err => console.error(err));
-}
-
 export function getPeople(slug: string): Promise<Person> {
-    return getDb().listDocuments(DB_NAME, '640475a2a7b08deb0966', [
+    const path = `/v1/databases/${DB_NAME}/collections/${COLLECTION}/documents`;
+
+    return getDb().listDocuments(DB_NAME, COLLECTION, [
         Query.equal('slug', slug),
     ]).then(res => {
         if (res.total < 1) return { email: '', firstName: '', lastName: '' } as Person;
