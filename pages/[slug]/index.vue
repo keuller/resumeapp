@@ -21,17 +21,18 @@
             title: `CV ${people.person.firstName} ${people.person.lastName}`,
             url: `https://getrezume.com/${route.params.slug}`
         }
-        await navigator.share(shareLink);
+        if ("share" in navigator) {
+            await navigator.share(shareLink);
+        }
     }
 </script>
 
 <template>
     <div class="relative flex flex-col bg-slate-50 w-full">
-        <header class="lg:pt-2 pb-2 sticky -top-2">
+        <header class="lg:pt-2 pb-2 sticky top-0">
             <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
                 <div class="flex flex-col gap-4">
-
-                    <div class="flex gap-4">
+                    <div class="flex gap-4 items-center">
                         <img src="https://placehold.jp/3d4070/ffffff/150x150.png"
                             alt="avatar" width="64" height="64" class="rounded-full h-16 w-16" />
 
@@ -64,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class="block">
+                <div class="flex items-center justify-center w-8 h-8">
                     <a href="#" title="Share" @click.prevent="doShare">
                         <img :src="shareIcon" width="22" height="22" alt="share" />
                     </a>
