@@ -1,7 +1,7 @@
 import { H3Event } from 'h3';
 import { Query } from 'node-appwrite';
 import db from '~/lib/client';
-import type { SkillSet, Job } from '~/types';
+import type { SkillSet, Job, Project } from '~/types';
 
 const DB = 'resumedb-dev';
 const COLLECTION = '640475a2a7b08deb0966';
@@ -30,7 +30,7 @@ async function loadSkillSet(personId: string): Promise<Array<SkillSetView>> {
 }
 
 // load all jobs
-async function loadJobs(personId: String): Promise<Array<Job>> {
+async function loadJobs(personId: string): Promise<Array<Job>> {
     const COLL_NAME = '640475d3244123ffa68b';
     const res = await db.listDocuments(DB, COLL_NAME, [
         Query.equal('person_id', [personId]),
@@ -53,6 +53,28 @@ async function loadJobs(personId: String): Promise<Array<Job>> {
     return outcome;
 }
 
+// load all projects
+async function loadProjects(personId: string): Promise<Array<Project>> {
+    const COLL_NAME = '640475c30afe05af1377';
+    const res = await db.listDocuments(DB, COLL_NAME, [
+        Query.equal('person_id', [personId]),
+    ]);
+
+    if (!res || res.total < 1) return [];
+
+    let outcome: Project[] = [];
+    for(const doc of res.documents) {
+        const item: Project = {
+            name: doc.name,
+            description: doc.description,
+            stack: doc.stack,
+            createdAt: doc.created_at
+        }
+        outcome = [...outcome, item]
+    }
+    return outcome;
+}
+
 export default defineEventHandler(async (ev: H3Event) => {
     const { params } = ev.context;
     const slug = params?.slug ?? '';
@@ -67,13 +89,13 @@ export default defineEventHandler(async (ev: H3Event) => {
 
     const docs = res.documents[0];
     const docId = docs.$id;
-    const [skillsets, jobs] = await Promise.all([
+    const [skillsets, jobs, projects] = await Promise.all([
         loadSkillSet(docId),
-        loadJobs(docId)
+        loadJobs(docId),
+        loadProjects(docId)
     ]);
 
     return {
-        status: 'OK',
         firstName: docs.first_name,
         lastName: docs.last_name,
         email: docs.email,
@@ -83,6 +105,7 @@ export default defineEventHandler(async (ev: H3Event) => {
         gitlab: docs.gitlab,
         linkedin: docs.linkedin,
         skillsets,
+        projects,
         jobs
     }
 });
