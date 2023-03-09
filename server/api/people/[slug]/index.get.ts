@@ -1,7 +1,7 @@
 import { H3Event } from 'h3';
 import { Query } from 'node-appwrite';
 import db from '~/lib/client';
-import type { SkillSet } from '~/types';
+import type { SkillSet, Job } from '~/types';
 
 const DB = 'resumedb-dev';
 const COLLECTION = '640475a2a7b08deb0966';
@@ -29,6 +29,30 @@ async function loadSkillSet(personId: string): Promise<Array<SkillSetView>> {
     return outcome;
 }
 
+// load all jobs
+async function loadJobs(personId: String): Promise<Array<Job>> {
+    const COLL_NAME = '640475d3244123ffa68b';
+    const res = await db.listDocuments(DB, COLL_NAME, [
+        Query.equal('person_id', [personId]),
+    ]);
+
+    if (!res || res.total < 1) return [];
+
+    let outcome: Job[] = [];
+    for(const doc of res.documents) {
+        const item: Job = {
+            company: doc.nane,
+            jobTitle: doc.category,
+            startDate: doc.job_start,
+            endDate: doc.job_end,
+            mode: doc.mode,
+            createdAt: doc.created_at
+        }
+        outcome = [...outcome, item]
+    }
+    return outcome;
+}
+
 export default defineEventHandler(async (ev: H3Event) => {
     const { params } = ev.context;
     const slug = params?.slug ?? '';
@@ -43,7 +67,10 @@ export default defineEventHandler(async (ev: H3Event) => {
 
     const docs = res.documents[0];
     const docId = docs.$id;
-    const skillsets = await loadSkillSet(docId);
+    const [skillsets, jobs] = await Promise.all([
+        loadSkillSet(docId),
+        loadJobs(docId)
+    ]);
 
     return {
         status: 'OK',
@@ -55,6 +82,7 @@ export default defineEventHandler(async (ev: H3Event) => {
         github: docs.github,
         gitlab: docs.gitlab,
         linkedin: docs.linkedin,
-        skillsets
+        skillsets,
+        jobs
     }
 });

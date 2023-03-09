@@ -12,12 +12,12 @@ export type Job = {
     startDate: string,
     endDate?: string,
     mode: string,
-    createdAd: Date
+    createdAt: Date
 }
 
 export type Project = {
     name: string,
     description: string,
     stack: string[],
-    createdAd: Date
+    createdAt: Date
 }
