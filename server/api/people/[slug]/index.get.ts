@@ -8,6 +8,7 @@ const COLLECTION = '640475a2a7b08deb0966';
 
 type SkillSetView = Omit<SkillSet, "oid" | "createdAt">;
 type ProjectView = Omit<Project, "createdAt">;
+type JobView = Omit<Job, "createdAt">;
 
 // load all skillset docs accordinly to the person's ID
 async function loadSkillSet(personId: string): Promise<Array<SkillSetView>> {
@@ -31,7 +32,7 @@ async function loadSkillSet(personId: string): Promise<Array<SkillSetView>> {
 }
 
 // load all jobs
-async function loadJobs(personId: string): Promise<Array<Job>> {
+async function loadJobs(personId: string): Promise<Array<JobView>> {
     const COLL_NAME = '640475d3244123ffa68b';
     const res = await db.listDocuments(DB, COLL_NAME, [
         Query.equal('person_id', [personId]),
@@ -39,15 +40,14 @@ async function loadJobs(personId: string): Promise<Array<Job>> {
 
     if (!res || res.total < 1) return [];
 
-    let outcome: Job[] = [];
+    let outcome: JobView[] = [];
     for(const doc of res.documents) {
-        const item: Job = {
+        const item: JobView = {
             company: doc.nane,
             jobTitle: doc.category,
             startDate: doc.job_start,
             endDate: doc.job_end,
-            mode: doc.mode,
-            createdAt: doc.created_at
+            mode: doc.mode
         }
         outcome = [...outcome, item]
     }
