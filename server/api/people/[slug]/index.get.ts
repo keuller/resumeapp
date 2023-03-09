@@ -7,6 +7,7 @@ const DB = 'resumedb-dev';
 const COLLECTION = '640475a2a7b08deb0966';
 
 type SkillSetView = Omit<SkillSet, "oid" | "createdAt">;
+type ProjectView = Omit<Project, "createdAt">;
 
 // load all skillset docs accordinly to the person's ID
 async function loadSkillSet(personId: string): Promise<Array<SkillSetView>> {
@@ -54,7 +55,7 @@ async function loadJobs(personId: string): Promise<Array<Job>> {
 }
 
 // load all projects
-async function loadProjects(personId: string): Promise<Array<Project>> {
+async function loadProjects(personId: string): Promise<Array<ProjectView>> {
     const COLL_NAME = '640475c30afe05af1377';
     const res = await db.listDocuments(DB, COLL_NAME, [
         Query.equal('person_id', [personId]),
@@ -62,13 +63,12 @@ async function loadProjects(personId: string): Promise<Array<Project>> {
 
     if (!res || res.total < 1) return [];
 
-    let outcome: Project[] = [];
+    let outcome: ProjectView[] = [];
     for(const doc of res.documents) {
-        const item: Project = {
+        const item: ProjectView = {
             name: doc.name,
             description: doc.description,
             stack: doc.stack,
-            createdAt: doc.created_at
         }
         outcome = [...outcome, item]
     }
