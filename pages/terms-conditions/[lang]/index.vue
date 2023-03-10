@@ -2,7 +2,7 @@
 
 <template>
   <section id="terms" class="relative flex flex-col bg-slate-50">
-    <div class="xs:w-full lg:w-[990px] lg:mx-auto">
+    <div class="xs:w-full lg:w-[990px] lg:mx-auto px-4 lg:px-0">
       <h1 class="text-2xl font-bold py-4">Terms and conditions</h1>
       <p class="leading-7 tracking-wide">
         These terms and conditions (&#8220;Agreement&#8221;) set forth the general terms
