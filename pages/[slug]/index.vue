@@ -7,12 +7,14 @@
     import emailIcon from '~/assets/email-icon.svg';
 
     const route = useRoute();
+    const fullName = ref<string>('');
+    const mailTo = ref<string>('');
 
     const { data, error, pending } = useAsyncData('resume', () => $fetch(`/api/people/${route.params.slug}`));
 
     const doShare = async () => {
         const shareLink = {
-            title: `CV ${data?.firstName} ${data?.lastName}`,
+            title: `CV ${fullName.value}`,
             url: `https://getrezume.com/${route.params.slug}`
         }
         if ("share" in navigator) {
@@ -20,9 +22,9 @@
         }
     }
 
-    const mailTo = ref<string>('');
     watch(data, (val) => {
         mailTo.value = `mailto:${val?.email}`;
+        fullName.value = `${val?.firstName} ${val?.lastName}`;
     });
 </script>
 
@@ -88,19 +90,19 @@
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
                     <div  class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
                         <h2 class="font-bold text-base p-1">Social Medias</h2>
-                        <ul class="flex px-1 gap-2 pb-2">
-                            <li class="text-sm">
-                                <a href="#" target="_new" class="outline-none">
+                        <ul v-if="!pending" class="flex px-1 gap-2 pb-2">
+                            <li v-if="data?.linkedin !== null" class="text-sm">
+                                <a :href="data?.linkedin" target="_new" class="outline-none">
                                     <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
                                 </a>
                             </li>
-                            <li class="text-sm">
-                                <a href="#" class="outline-none" target="_new">
+                            <li v-if="data?.github !== null" class="text-sm">
+                                <a :href="data?.github" class="outline-none" target="_new">
                                     <img :src="github" class="h-8 w-8" alt="github"/>
                                 </a>
                             </li>
-                            <li class="text-sm">
-                                <a href="#" class="outline-none" target="_new">
+                            <li v-if="data?.gitlab !== null" class="text-sm">
+                                <a :href="data?.gitlab" class="outline-none" target="_new">
                                     <img :src="gitlab" class="h-8 w-8" alt="gitlab"/>
                                 </a>
                             </li>
