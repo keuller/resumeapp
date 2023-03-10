@@ -11,24 +11,18 @@
     const { data, error, pending } = useAsyncData('resume', () => $fetch(`/api/people/${route.params.slug}`));
 
     const doShare = async () => {
-        // const shareLink = {
-        //     title: `CV ${people.person.firstName} ${people.person.lastName}`,
-        //     url: `https://getrezume.com/${route.params.slug}`
-        // }
-        // if ("share" in navigator) {
-        //     await navigator.share(shareLink);
-        // }
+        const shareLink = {
+            title: `CV ${data?.firstName} ${data?.lastName}`,
+            url: `https://getrezume.com/${route.params.slug}`
+        }
+        if ("share" in navigator) {
+            await navigator.share(shareLink);
+        }
     }
 
     const mailTo = ref<string>('');
     watch(data, (val) => {
         mailTo.value = `mailto:${val?.email}`;
-    });
-
-    const showMedias = computed(() => {
-        // const { github, gitlab, linkedin } = people.person;
-        // return (github !== '' || gitlab !== '' || linkedin !== '');
-        return true;
     });
 </script>
 
@@ -81,7 +75,7 @@
                     </div>
                 </div>
 
-                <div class="flex items-center justify-center w-8 h-8">
+                <div class="flex items-center justify-center w-8 h-8 lg:hidden">
                     <a href="#" title="Share" @click.prevent="doShare">
                         <img :src="shareIcon" width="22" height="22" alt="share" />
                     </a>

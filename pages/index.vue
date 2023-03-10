@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <div class="block">
+                <div class="lg:hidden">
                     <a href="#" title="Share">
                         <img :src="shareIcon" width="22" height="22" alt="share" />
                     </a>
