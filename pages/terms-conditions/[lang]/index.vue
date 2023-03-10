@@ -135,5 +135,7 @@
       </p>
       <p class="py-4 text-base text-slate-500">This document was last updated on March 10, 2023</p>
     </div>
+
+    <FooterPage />
   </section>
 </template>
