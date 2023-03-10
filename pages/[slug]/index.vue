@@ -4,19 +4,9 @@
     import gitlab from '~/assets/gitlab.png';
     import shareIcon from '~/assets/share.png';
     import editIcon from '~/assets/edit.svg';
-    import heartIcon from '~/assets/heart-icon.png';
     import emailIcon from '~/assets/email-icon.svg';
 
-    // definePageMeta({
-    //     validate: async ({ params }) => {
-    //         const peopleSvc = usePeople();
-    //         await peopleSvc.findPerson(params.slug as string);
-    //         return (peopleSvc.person.email !== '');
-    //     }
-    // });
-
     const route = useRoute();
-    // const people = usePeople();
 
     const { data, error, pending } = useAsyncData('resume', () => $fetch(`/api/people/${route.params.slug}`));
 
@@ -154,7 +144,7 @@
             </aside>
 
             <main class="flex flex-col gap-3 flex-1 w-full">
-                <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
+                <section v-if="!pending" class="bg-white rounded p-2 shadow-sm hover:shadow-md">
                     <div class="flex items-center justify-between">
                         <h2 class="p-3 font-semibold text-lg">EXPERIENCES</h2>
                         <a href="#" class="hidden">
@@ -189,7 +179,7 @@
                 Copyright 2023. &copy;
             </span>
             <span class="inline-flex gap-1 text-slate-400 p-3 text-sm">
-            Made with <img :src="heartIcon" alt="heart" width="18" height="18" />
+            Made with <img src="/img/heart-icon.png" alt="heart" width="18" height="18" />
             </span>
         </div>
     </div>

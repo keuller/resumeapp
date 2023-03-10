@@ -4,7 +4,6 @@
     import github from '~/assets/github.webp';
     import gitlab from '~/assets/gitlab.png';
     import editIcon from '~/assets/edit.svg';
-    import heartIcon from '~/assets/heart-icon.png';
 </script>
 
 <template>
@@ -110,28 +109,33 @@
 
                     <ExperienceItem company="Acme Inc"
                         job="Engineer Manager"
-                        period="May 2023 - Current"
-                        model="Full-time" />
+                        startDate="2023-05-02"
+                        endDate=""
+                        :mode="1" />
 
                     <ExperienceItem company="Acme Inc"
                         job="Tech Lead"
-                        period="Feb 2022 - May 2023"
-                        model="Full-time" />
+                        startDate="2022-02-02"
+                        endDate="2023-05-07"
+                        :mode="1" />
 
                     <ExperienceItem company="Activate Inc"
                         job="Senior Engineer"
-                        period="Jan 2021 - May 2022"
-                        model="Full-time" />
+                        startDate="2021-01-11"
+                        endDate="2022-05-07"
+                        :mode="1" />
 
                     <ExperienceItem company="Woods Inc"
                         job="Software Engineer"
-                        period="Apr 2020 - Apr 2021"
-                        model="Full-time" />
+                        startDate="2020-04-10"
+                        endDate="2021-04-16"
+                        :mode="2" />
 
                     <ExperienceItem company="ShowBox Co"
                         job="Software Engineer"
-                        period="Jan 2018 - Apr 2020"
-                        model="Full-time" />
+                        startDate="2018-01-05"
+                        endDate="2020-04-15"
+                        :mode="1" />
                 </section>
 
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
@@ -188,7 +192,7 @@
                 Copyright 2023. &copy;
             </span>
             <span class="inline-flex gap-1 text-slate-400 p-3 text-sm">
-            Made with <img :src="heartIcon" alt="heart" width="18" height="18" />
+            Made with <img src="/img/heart-icon.png" alt="heart" width="18" height="18" />
             </span>
         </div>
     </div>

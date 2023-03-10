@@ -9,9 +9,9 @@ export type SkillSet = {
 export type Job = {
     company: string,
     jobTitle: string,
-    startDate: Date,
-    endDate?: Date | null,
-    mode: string,
+    startDate: string,
+    endDate?: string | null,
+    mode: number,
     createdAt: Date
 }
 
