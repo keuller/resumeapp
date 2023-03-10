@@ -28,7 +28,15 @@ async function loadSkillSet(personId: string): Promise<Array<SkillSetView>> {
         }
         outcome = [...outcome, item]
     }
-    return outcome;
+
+    return outcome.sort((s1, s2) => {
+        const val1 = Number(s1.value);
+        const val2 = Number(s2.value);
+        if (isNaN(val1) || isNaN(val2)) return 0;
+        if(val1 < val2) return 1;
+        if(val1 === val2) return 0;
+        return -1;
+    });
 }
 
 // load all jobs
@@ -36,22 +44,30 @@ async function loadJobs(personId: string): Promise<Array<JobView>> {
     const COLL_NAME = '640475d3244123ffa68b';
     const res = await db.listDocuments(DB, COLL_NAME, [
         Query.equal('person_id', [personId]),
+        Query.orderAsc('job_start')
     ]);
 
     if (!res || res.total < 1) return [];
 
     let outcome: JobView[] = [];
     for(const doc of res.documents) {
+        const startDate = new Date(`${doc.job_start}T01:00:00.000Z`);
+        const endDate = (doc.job_end !== null ? new Date(`${doc.job_end}T23:59:00.000Z`) : null);
         const item: JobView = {
-            company: doc.nane,
-            jobTitle: doc.category,
-            startDate: doc.job_start,
-            endDate: doc.job_end,
+            company: doc.company,
+            jobTitle: doc.job_title,
+            startDate,
+            endDate,
             mode: doc.mode
         }
-        outcome = [...outcome, item]
+        outcome = [...outcome, item];
     }
-    return outcome;
+
+    return outcome.sort((j1, j2) => {
+        if(j1.startDate < j2.startDate) return 1;
+        if(j1.startDate === j2.startDate) return 0;
+        return -1;
+    });
 }
 
 // load all projects
