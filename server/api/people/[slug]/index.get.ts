@@ -111,6 +111,8 @@ export default defineEventHandler(async (ev: H3Event) => {
         loadProjects(docId)
     ]);
 
+    const skills = skillsets.filter(item => item.category === 'skill');
+    const langs = skillsets.filter(item => item.category === 'language')
     return {
         firstName: docs.first_name,
         lastName: docs.last_name,
@@ -121,7 +123,8 @@ export default defineEventHandler(async (ev: H3Event) => {
         gitlab: docs.gitlab,
         linkedin: docs.linkedin,
         interests: docs.interests,
-        skillsets,
+        skills,
+        langs,
         projects,
         jobs
     }
