@@ -120,6 +120,7 @@ export default defineEventHandler(async (ev: H3Event) => {
         github: docs.github,
         gitlab: docs.gitlab,
         linkedin: docs.linkedin,
+        interests: docs.interests,
         skillsets,
         projects,
         jobs

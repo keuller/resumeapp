@@ -6,6 +6,7 @@
     import shareIcon from '~/assets/share.png';
     import editIcon from '~/assets/edit.svg';
     import heartIcon from '~/assets/heart-icon.png';
+    import emailIcon from '~/assets/email-icon.svg';
 
     // definePageMeta({
     //     validate: async ({ params }) => {
@@ -16,7 +17,9 @@
     // });
 
     const route = useRoute();
-    const people = usePeople();
+    // const people = usePeople();
+
+    const { data, error, pending } = useAsyncData('resume', () => $fetch(`/api/people/${route.params.slug}`));
 
     const doShare = async () => {
         // const shareLink = {
@@ -28,6 +31,11 @@
         // }
     }
 
+    const mailTo = ref<string>('');
+    watch(data, (val) => {
+        mailTo.value = `mailto:${val?.email}`;
+    });
+
     const showMedias = computed(() => {
         // const { github, gitlab, linkedin } = people.person;
         // return (github !== '' || gitlab !== '' || linkedin !== '');
@@ -37,17 +45,28 @@
 
 <template>
     <div class="relative flex flex-col bg-slate-50 w-full">
-        <header class="lg:pt-2 pb-2 sticky top-0">
+        <div id="spinner" v-if="pending">
+            <div class="absolute inset-0 bg-slate-200 opacity-50 z-30">&nbsp;</div>
+            <div class="absolute flex items-center justify-center inset-0 z-50">
+                <Loader/>
+            </div>
+        </div>
+
+        <header class="lg:pt-2 pb-2 sticky top-0" style="min-height:100px;">
             <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
                 <div class="flex flex-col gap-4">
                     <div class="flex gap-4 items-center">
-                        <img src="https://placehold.jp/3d4070/ffffff/150x150.png"
-                            alt="avatar" width="64" height="64" class="rounded-full h-16 w-16" />
+                        <img :src="data?.avatar"
+                            alt="avatar" width="64" height="64"
+                            class="rounded-full h-16 w-16" />
 
-                        <div class="flex flex-col tracking-wide">
-                            <span class="font-semibold">Abdoral Gusmao</span>
-                            <span class="text-base">Sr Software Engineer</span>
-                            <span class="text-sm text-slate-500">abdoral.gusmao@outlook.com</span>
+                        <div v-if="!pending" class="flex flex-col tracking-wide">
+                            <span class="font-semibold">{{ data?.firstName }} {{ data?.lastName }}</span>
+                            <span class="text-base">{{ data?.jobTitle }}</span>
+                            <div class="flex gap-2 text-sm text-slate-500">
+                                <img :src="emailIcon" alt="email" width="16" height="16"/>
+                                <span><a :href="mailTo">{{ data?.email }}</a></span>
+                            </div>
                         </div>
                     </div>
 
@@ -108,11 +127,9 @@
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
                         <h2 class="font-bold text-base p-1">Interest</h2>
                         <ul class="flex flex-col gap-1 pb-2">
-                            <InterestItem name="Web Development" />
-                            <InterestItem name="Mobile Development" />
-                            <InterestItem name="Cloud Development" />
-                            <InterestItem name="Microservices" />
-                            <InterestItem name="AI/ML" />
+                            <template v-for="interest in data?.interests">
+                                <InterestItem :name="interest" />
+                            </template>
                         </ul>
                     </div>
 
