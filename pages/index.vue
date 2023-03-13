@@ -71,7 +71,7 @@
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
                         <h2 class="font-bold text-base p-1">Skills</h2>
                         <ul class="flex flex-col gap-2 pb-2">
-                            <SkillItem name="Koa/Express" :value="5" />
+                            <SkillItem name="Koa/Express" :value="4" />
 
                             <SkillItem name="Vue3/Nuxt3" :value="4" />
 
