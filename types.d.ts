@@ -21,3 +21,10 @@ export type Project = {
     stack: string[],
     createdAt: Date
 }
+
+type Register = {
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string
+}

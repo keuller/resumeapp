@@ -7,6 +7,6 @@ client.setEndpoint('https://cloud.appwrite.io/v1')
     .setProject('resumeapp')
     .setKey(cfg.devApiKey);
 
-const db = new sdk.Databases(client);
+export const db = new sdk.Databases(client);
 
-export default db;
+export const account = new sdk.Account(client);

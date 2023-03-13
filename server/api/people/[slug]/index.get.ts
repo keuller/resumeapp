@@ -1,6 +1,6 @@
 import { H3Event } from 'h3';
 import { Query } from 'node-appwrite';
-import db from '~/lib/client';
+import { db } from '~/lib/client';
 import type { SkillSet, Job, Project } from '~/types';
 
 const DB = 'resumedb-dev';
