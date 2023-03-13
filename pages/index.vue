@@ -37,7 +37,7 @@
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base p-1">Social Medias</h2>
+                        <h2 class="font-bold text-base tracking-wide p-1">Social Medias</h2>
                         <ul class="flex px-1 gap-2 pb-2">
                             <li class="text-sm">
                                 <a href="#" target="_new" class="outline-none">
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base p-1">Interest</h2>
+                        <h2 class="font-bold text-base tracking-wide p-1">Interest</h2>
                         <ul class="flex flex-col gap-1 pb-2">
                             <InterestItem name="Web Development" />
                             <InterestItem name="Mobile Development" />
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base p-1">Skills</h2>
+                        <h2 class="font-bold text-base tracking-wide p-1">Skills</h2>
                         <ul class="flex flex-col gap-2 pb-2">
                             <SkillItem name="Koa/Express" :value="4" />
 
@@ -88,7 +88,7 @@
                     </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base py-1">Languages</h2>
+                        <h2 class="font-bold text-base tracking-wide py-1">Languages</h2>
                         <ul class="flex flex-col gap-2 pb-2">
                             <LangItem name="Portugues" :value="5" />
                             <LangItem name="English" :value="3" />
@@ -101,7 +101,7 @@
             <main class="flex flex-col gap-3 flex-1 w-full">
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
                     <div class="flex items-center justify-between">
-                        <h2 class="p-3 font-semibold text-lg">EXPERIENCES</h2>
+                        <h2 class="p-3 font-semibold tracking-wide text-lg">EXPERIENCES</h2>
                         <a href="#" class="hidden">
                             <img :src="editIcon" width="16" height="16" alt="Edit" title="Edit" />
                         </a>
@@ -139,11 +139,11 @@
                 </section>
 
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
-                    <h2 class="p-3 font-semibold text-lg">PROJECTS</h2>
+                    <h2 class="p-3 font-semibold tracking-wide text-lg">PROJECTS</h2>
 
                     <div class="flex flex-col p-3 border-t-1">
                         <h3 class="font-bold">Project Name</h3>
-                        <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+                        <div class="text-sm leading-5 text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
                         <div class="flex flex-wrap gap-2 py-2">
                             <Badge name="Express" />
                             <Badge name="Vue" />

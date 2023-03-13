@@ -89,7 +89,7 @@
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
                     <div  class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base p-1">Social Medias</h2>
+                        <h2 class="font-bold text-base tracking-wide p-1">Social Medias</h2>
                         <ul v-if="!pending" class="flex px-1 gap-2 pb-2">
                             <li v-if="data?.linkedin !== null" class="text-sm">
                                 <a :href="data?.linkedin" target="_new" class="outline-none">
@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base p-1">Interest</h2>
+                        <h2 class="font-bold text-base tracking-wide p-1">Interest</h2>
                         <ul class="flex flex-col gap-1 pb-2">
                             <template v-for="interest in data?.interests">
                                 <InterestItem :name="interest" />
@@ -119,7 +119,7 @@
                     </div>
 
                     <div v-if="!pending" class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base p-1">Skills</h2>
+                        <h2 class="font-bold text-base tracking-wide p-1">Skills</h2>
                         <ul class="flex flex-col gap-2 pb-2">
                             <SkillItem v-for="skill in data?.skills"
                                 :name="skill.name"
@@ -129,7 +129,7 @@
                     </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base py-1">Languages</h2>
+                        <h2 class="font-bold text-base tracking-wide py-1">Languages</h2>
                         <ul class="flex flex-col gap-2 pb-2">
                             <LangItem v-for="lang in data?.langs"
                                 :name="lang.name"
@@ -142,7 +142,7 @@
             <main class="flex flex-col gap-3 flex-1 w-full">
                 <section v-if="!pending" class="bg-white rounded p-2 shadow-sm hover:shadow-md">
                     <div class="flex items-center justify-between">
-                        <h2 class="p-3 font-semibold text-lg">EXPERIENCES</h2>
+                        <h2 class="p-3 font-semibold tracking-wide text-lg">EXPERIENCES</h2>
                         <a href="#" class="hidden">
                             <img :src="editIcon" width="16" height="16" alt="Edit" title="Edit" />
                         </a>
@@ -160,7 +160,7 @@
                 </section>
 
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
-                    <h2 class="p-3 font-semibold text-lg">PROJECTS</h2>
+                    <h2 class="p-3 font-semibold tracking-wide text-lg">PROJECTS</h2>
 
                     <EmptyContent v-if="data?.projects.length == 0"
                         text="No projects found!" />
