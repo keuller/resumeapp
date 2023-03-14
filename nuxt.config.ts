@@ -49,6 +49,10 @@ export default defineNuxtConfig({
         shim: false
     },
 
+    plugins: [
+        { src:'~/plugins/vercel.ts', mode: 'client' }
+    ],
+
     runtimeConfig: {
         devApiKey: process.env.DEV_API_KEY
     },

@@ -12,7 +12,7 @@
   "devDependencies": {
     "@nuxtjs/robots": "^3.0.0",
     "autoprefixer": "^10.4.14",
-    "nuxt": "^3.2.3",
+    "nuxt": "^3.3.1",
     "postcss": "^8.4.21",
     "sharp": "^0.31.3",
     "svgo": "^3.0.2",
@@ -20,6 +20,7 @@
     "vite-plugin-image-optimizer": "^1.1.2"
   },
   "dependencies": {
+    "@vercel/analytics": "^0.1.11",
     "@vercel/node": "^2.9.12",
     "firebase": "^9.17.2",
     "node-appwrite": "^8.2.0"
