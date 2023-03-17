@@ -79,7 +79,7 @@
 
                             <SkillItem name="React/NextJS" :value="3" />
 
-                            <SkillItem name="Docker" :value="5" />
+                            <SkillItem name="Docker" :value="3" />
 
                             <SkillItem name="MongoDB" :value="4" />
 
