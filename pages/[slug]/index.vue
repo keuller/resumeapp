@@ -5,10 +5,12 @@
     import shareIcon from '~/assets/share.png';
     import editIcon from '~/assets/edit.svg';
     import emailIcon from '~/assets/email-icon.svg';
+    import emptyAvatar from '~/assets/avatar-empty.png';
 
     const route = useRoute();
     const fullName = ref<string>('');
     const mailTo = ref<string>('');
+    const avatar = ref<string>(emptyAvatar)
 
     const { data, pending } = useAsyncData('resume', () => $fetch(`/api/people/${route.params.slug}`));
 
@@ -23,6 +25,7 @@
     }
 
     watch(data, (val) => {
+        avatar.value = data?.avatar ?? emptyAvatar;
         mailTo.value = `mailto:${val?.email}`;
         fullName.value = `${val?.firstName} ${val?.lastName}`;
     });
@@ -41,7 +44,7 @@
             <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded px-4 py-2 shadow">
                 <div class="flex flex-col gap-4">
                     <div class="flex gap-4 items-center">
-                        <img :src="data?.avatar"
+                        <img :src="avatar"
                             alt="avatar" width="64" height="64"
                             class="rounded-full h-16 w-16" />
 
