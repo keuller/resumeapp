@@ -47,7 +47,7 @@
 
                         <div v-if="!pending" class="flex flex-col tracking-wide">
                             <span class="font-semibold">{{ data?.firstName }} {{ data?.lastName }}</span>
-                            <span class="text-base">{{ data?.jobTitle }}</span>
+                            <span class="text-sm text-slate-500">{{ data?.jobTitle }}</span>
                             <div class="flex gap-2 text-sm text-slate-500">
                                 <img :src="emailIcon" alt="email" width="16" height="16"/>
                                 <span><a :href="mailTo">{{ data?.email }}</a></span>

@@ -4,6 +4,7 @@
     import github from '~/assets/github.webp';
     import gitlab from '~/assets/gitlab.png';
     import avatar from '~/assets/avatar-placeholder.webp';
+    import emailIcon from '~/assets/email-icon.svg';
 </script>
 
 <template>
@@ -19,8 +20,11 @@
 
                         <div class="flex flex-col tracking-wide">
                             <span class="font-semibold">Abdoral Gusmao</span>
-                            <span class="text-base">Sr. Software Engineer</span>
-                            <span class="text-sm text-slate-500">abdoral.gusmao@gmail.com</span>
+                            <span class="text-sm text-slate-500">Sr. Software Engineer</span>
+                            <div class="flex gap-2 text-sm text-slate-500">
+                                <img :src="emailIcon" alt="email" width="16" height="16"/>
+                                <span class="text-sm text-slate-500">abdoral.gusmao@gmail.com</span>
+                            </div>
                         </div>
                     </div>
                 </div>
