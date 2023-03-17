@@ -37,7 +37,7 @@
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base tracking-wide p-1">Social Medias</h2>
+                        <h2 class="box-title">Social Medias</h2>
                         <ul class="flex px-1 gap-2 pb-2">
                             <li class="text-sm">
                                 <a href="#" target="_new" class="outline-none">
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base tracking-wide p-1">Interest</h2>
+                        <h2 class="box-title">Interest</h2>
                         <ul class="flex flex-col gap-1 pb-2">
                             <InterestItem name="Web Development" />
                             <InterestItem name="Mobile Development" />
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base tracking-wide p-1">Skills</h2>
+                        <h2 class="box-title">Skills</h2>
                         <ul class="flex flex-col gap-2 pb-2">
                             <SkillItem name="Koa/Express" :value="4" />
 
@@ -88,8 +88,8 @@
                     </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="font-bold text-base tracking-wide py-1">Languages</h2>
-                        <ul class="flex flex-col gap-2 pb-2">
+                        <h2 class="box-title">Languages</h2>
+                        <ul class="flex flex-col gap-2 pl-1 pb-2">
                             <LangItem name="Portugues" :value="5" />
                             <LangItem name="English" :value="3" />
                             <LangItem name="French" :value="1" />

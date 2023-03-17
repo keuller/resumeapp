@@ -10,3 +10,7 @@ body {
     flex-direction: column;
     background-color: rgb(248 250 252);
 }
+
+.box-title {
+    @apply font-bold text-gray-400 text-sm tracking-wide p-1 uppercase;
+}
