@@ -3,7 +3,7 @@
     import linkedin from '~/assets/linkedin.png';
     import github from '~/assets/github.webp';
     import gitlab from '~/assets/gitlab.png';
-    import editIcon from '~/assets/edit.svg';
+    import avatar from '~/assets/avatar-placeholder.webp';
 </script>
 
 <template>
@@ -13,7 +13,7 @@
                 <div class="flex flex-col gap-4">
 
                     <div class="flex gap-4">
-                        <img src="https://placehold.jp/3d4070/ffffff/150x150.png"
+                        <img :src="avatar"
                             alt="avatar" width="64" height="64"
                             class="rounded-full h-16 w-16" />
 
@@ -101,9 +101,9 @@
             <main class="flex flex-col gap-3 flex-1 w-full">
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
                     <div class="flex items-center justify-between">
-                        <h2 class="p-3 font-semibold tracking-wide text-lg">EXPERIENCES</h2>
+                        <h2 class="p-3 text-gray-400 font-semibold tracking-wide text-base">PROFESSIONAL EXPERIENCE</h2>
                         <a href="#" class="hidden">
-                            <img :src="editIcon" width="16" height="16" alt="Edit" title="Edit" />
+
                         </a>
                     </div>
 
@@ -139,7 +139,7 @@
                 </section>
 
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
-                    <h2 class="p-3 font-semibold tracking-wide text-lg">PROJECTS</h2>
+                    <h2 class="p-3 text-gray-400 font-semibold tracking-wide text-base">PROJECTS</h2>
 
                     <div class="flex flex-col p-3 border-t-1">
                         <h3 class="font-bold">Project Name</h3>

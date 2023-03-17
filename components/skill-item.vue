@@ -6,6 +6,7 @@
         4: 'Expert',
         5: 'N/A'
     }
+
     const props = defineProps({
         name: {
             type: String,
