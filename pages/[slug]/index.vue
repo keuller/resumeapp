@@ -88,26 +88,6 @@
         <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
-                    <div  class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
-                        <h2 class="box-title">Social Medias</h2>
-                        <ul v-if="!pending" class="flex px-1 gap-2 pb-2">
-                            <li v-if="data?.linkedin !== null" class="text-sm">
-                                <a :href="data?.linkedin" target="_new" class="outline-none">
-                                    <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
-                                </a>
-                            </li>
-                            <li v-if="data?.github !== null" class="text-sm">
-                                <a :href="data?.github" class="outline-none" target="_new">
-                                    <img :src="github" class="h-8 w-8" alt="github" />
-                                </a>
-                            </li>
-                            <li v-if="data?.gitlab !== null" class="text-sm">
-                                <a :href="data?.gitlab" class="outline-none" target="_new">
-                                    <img :src="gitlab" class="h-8 w-8" alt="gitlab" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
                         <h2 class="box-title">Interests</h2>
@@ -134,6 +114,27 @@
                             <LangItem v-for="lang in data?.langs"
                                 :name="lang.name"
                                 :value="Number(lang.value)" />
+                        </ul>
+                    </div>
+
+                    <div  class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
+                        <h2 class="box-title">Social Medias</h2>
+                        <ul v-if="!pending" class="flex px-1 gap-2 pb-2">
+                            <li v-if="data?.linkedin !== null" class="text-sm">
+                                <a :href="data?.linkedin" target="_new" class="outline-none">
+                                    <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
+                                </a>
+                            </li>
+                            <li v-if="data?.github !== null" class="text-sm">
+                                <a :href="data?.github" class="outline-none" target="_new">
+                                    <img :src="github" class="h-8 w-8" alt="github" />
+                                </a>
+                            </li>
+                            <li v-if="data?.gitlab !== null" class="text-sm">
+                                <a :href="data?.gitlab" class="outline-none" target="_new">
+                                    <img :src="gitlab" class="h-8 w-8" alt="gitlab" />
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

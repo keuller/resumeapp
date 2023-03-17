@@ -36,26 +36,6 @@
         <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
-                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
-                        <h2 class="box-title">Social Medias</h2>
-                        <ul class="flex px-1 gap-2 pb-2">
-                            <li class="text-sm">
-                                <a href="#" target="_new" class="outline-none">
-                                    <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
-                                </a>
-                            </li>
-                            <li class="text-sm">
-                                <a href="#" class="outline-none" target="_new">
-                                    <img :src="github" class="h-8 w-8" alt="github"/>
-                                </a>
-                            </li>
-                            <li class="text-sm">
-                                <a href="#" class="outline-none" target="_new">
-                                    <img :src="gitlab" class="h-8 w-8" alt="gitlab"/>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
                         <h2 class="box-title">Interests</h2>
@@ -93,6 +73,27 @@
                             <LangItem name="Portugues" :value="5" />
                             <LangItem name="English" :value="3" />
                             <LangItem name="French" :value="1" />
+                        </ul>
+                    </div>
+
+                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
+                        <h2 class="box-title">Social Medias</h2>
+                        <ul class="flex px-1 gap-2 pb-2">
+                            <li class="text-sm">
+                                <a href="#" target="_new" class="outline-none">
+                                    <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
+                                </a>
+                            </li>
+                            <li class="text-sm">
+                                <a href="#" class="outline-none" target="_new">
+                                    <img :src="github" class="h-8 w-8" alt="github"/>
+                                </a>
+                            </li>
+                            <li class="text-sm">
+                                <a href="#" class="outline-none" target="_new">
+                                    <img :src="gitlab" class="h-8 w-8" alt="gitlab"/>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
