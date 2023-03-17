@@ -29,7 +29,7 @@
 </script>
 
 <template>
-    <div class="relative flex flex-col bg-slate-50 w-full">
+    <div class="relative flex flex-col w-full">
         <div id="spinner" v-if="pending">
             <div class="absolute inset-0 bg-slate-200 opacity-50 z-30">&nbsp;</div>
             <div class="absolute flex items-center justify-center inset-0 z-50">
@@ -38,7 +38,7 @@
         </div>
 
         <header class="lg:pt-2 pb-2 sticky top-0" style="min-height:100px;">
-            <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
+            <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded px-4 py-2 shadow">
                 <div class="flex flex-col gap-4">
                     <div class="flex gap-4 items-center">
                         <img :src="data?.avatar"
@@ -88,7 +88,7 @@
         <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
-                    <div  class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                    <div  class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
                         <h2 class="box-title">Social Medias</h2>
                         <ul v-if="!pending" class="flex px-1 gap-2 pb-2">
                             <li v-if="data?.linkedin !== null" class="text-sm">
@@ -109,7 +109,7 @@
                         </ul>
                     </div>
 
-                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
                         <h2 class="box-title">Interests</h2>
                         <ul class="flex flex-col gap-1 pb-2">
                             <template v-for="interest in data?.interests">
@@ -118,7 +118,7 @@
                         </ul>
                     </div>
 
-                    <div v-if="!pending" class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                    <div v-if="!pending" class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
                         <h2 class="box-title">Skills</h2>
                         <ul class="flex flex-col gap-2 pb-2">
                             <SkillItem v-for="skill in data?.skills"
@@ -128,7 +128,7 @@
                         </ul>
                     </div>
 
-                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
                         <h2 class="box-title">Languages</h2>
                         <ul class="flex flex-col gap-2 pb-2 pl-1">
                             <LangItem v-for="lang in data?.langs"
@@ -140,7 +140,7 @@
             </aside>
 
             <main class="flex flex-col gap-3 flex-1 w-full">
-                <section v-if="!pending" class="bg-white rounded p-2 shadow-sm hover:shadow-md">
+                <section v-if="!pending" class="bg-white rounded p-2 shadow hover:shadow-md">
                     <div class="flex items-center justify-between pl-2">
                         <h2 class="box-title">PROFESSIONAL EXPERIENCE</h2>
                         <a href="#" class="hidden">
@@ -159,7 +159,7 @@
                         text="No experiences found!" />
                 </section>
 
-                <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
+                <section class="bg-white rounded p-2 shadow hover:shadow-md">
                     <div class="pl-2">
                         <h2 class="box-title">PROJECTS</h2>
                         <a href="#" class="hidden" aria-hidden="true" title="Edit">

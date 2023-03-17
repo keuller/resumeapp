@@ -20,8 +20,10 @@
 </script>
 
 <template>
-<li v-once class="flex flex-col px-1">
-    <span class="text-sm tracking-wider">{{ props.name }}</span>
-    <span class="text-sm tracking-wider text-slate-500">{{ values[props.value] }}</span>
+<li v-once class="flex px-1 item">
+    <div class="flex flex-col w-full">
+        <span class="text-sm tracking-wider text-gray-800">{{ props.name }}</span>
+        <span class="text-sm tracking-wider text-slate-500">{{ values[props.value] }}</span>
+    </div>
 </li>
 </template>

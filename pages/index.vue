@@ -7,9 +7,9 @@
 </script>
 
 <template>
-    <div class="relative flex flex-col bg-slate-50 w-full">
+    <div class="relative flex flex-col w-full">
         <header class="lg:pt-2 pb-2 sticky -top-2">
-            <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow-md">
+            <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow">
                 <div class="flex flex-col gap-4">
 
                     <div class="flex gap-4">
@@ -36,7 +36,7 @@
         <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
-                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
                         <h2 class="box-title">Social Medias</h2>
                         <ul class="flex px-1 gap-2 pb-2">
                             <li class="text-sm">
@@ -57,7 +57,7 @@
                         </ul>
                     </div>
 
-                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
                         <h2 class="box-title">Interests</h2>
                         <ul class="flex flex-col gap-1 pb-2">
                             <InterestItem name="Web Development" />
@@ -68,9 +68,9 @@
                         </ul>
                     </div>
 
-                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
                         <h2 class="box-title">Skills</h2>
-                        <ul class="flex flex-col gap-2 pb-2">
+                        <ul class="flex flex-col gap-2 pb-2 items">
                             <SkillItem name="Koa/Express" :value="4" />
 
                             <SkillItem name="Vue3/Nuxt3" :value="4" />
@@ -87,7 +87,7 @@
                         </ul>
                     </div>
 
-                    <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
+                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
                         <h2 class="box-title">Languages</h2>
                         <ul class="flex flex-col gap-2 pl-1 pb-2">
                             <LangItem name="Portugues" :value="5" />
@@ -99,7 +99,7 @@
             </aside>
 
             <main class="flex flex-col gap-3 flex-1 w-full">
-                <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
+                <section class="bg-white rounded p-2 shadow hover:shadow-md">
                     <div class="flex items-center justify-between pl-2">
                         <h2 class="box-title">PROFESSIONAL EXPERIENCE</h2>
                         <a href="#" class="hidden" title="Edit">
@@ -138,7 +138,7 @@
                         :mode="1" />
                 </section>
 
-                <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
+                <section class="bg-white rounded p-2 shadow hover:shadow-md">
                     <div class="pl-2">
                         <h2 class="box-title">PROJECTS</h2>
                         <a href="#" class="hidden" aria-hidden="true" title="Edit">
