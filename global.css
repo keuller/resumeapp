@@ -12,5 +12,5 @@ body {
 }
 
 .box-title {
-    @apply font-bold text-gray-400 text-sm tracking-wide p-1 uppercase;
+    @apply font-bold text-gray-400 text-sm tracking-wide p-1 mb-3 uppercase;
 }

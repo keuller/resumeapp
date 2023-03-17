@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="bg-white px-3 py-2 rounded-md shadow-sm hover:shadow-md">
-                        <h2 class="box-title">Interest</h2>
+                        <h2 class="box-title">Interests</h2>
                         <ul class="flex flex-col gap-1 pb-2">
                             <InterestItem name="Web Development" />
                             <InterestItem name="Mobile Development" />
@@ -100,10 +100,10 @@
 
             <main class="flex flex-col gap-3 flex-1 w-full">
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
-                    <div class="flex items-center justify-between">
-                        <h2 class="p-3 text-gray-400 font-semibold tracking-wide text-base">PROFESSIONAL EXPERIENCE</h2>
-                        <a href="#" class="hidden">
-
+                    <div class="flex items-center justify-between pl-2">
+                        <h2 class="box-title">PROFESSIONAL EXPERIENCE</h2>
+                        <a href="#" class="hidden" title="Edit">
+                            Edit
                         </a>
                     </div>
 
@@ -139,7 +139,12 @@
                 </section>
 
                 <section class="bg-white rounded p-2 shadow-sm hover:shadow-md">
-                    <h2 class="p-3 text-gray-400 font-semibold tracking-wide text-base">PROJECTS</h2>
+                    <div class="pl-2">
+                        <h2 class="box-title">PROJECTS</h2>
+                        <a href="#" class="hidden" aria-hidden="true" title="Edit">
+                            Edit
+                        </a>
+                    </div>
 
                     <div class="flex flex-col p-3 border-t-1">
                         <h3 class="font-bold">Project Name</h3>
