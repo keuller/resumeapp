@@ -1,6 +1,7 @@
 <script setup lang="ts">
     import { Icons } from '~/lib/icons';
     import GrButton from '~/components/atoms/gr-button.vue';
+    import GrCircleButton from '~/components/atoms/gr-circle-button.vue';
     import TopBar from '~/components/top-bar.vue';
     import FooterPage from '~/components/footer-page.vue';
 </script>
@@ -37,17 +38,13 @@
                 </div>
 
                 <div class="flex gap-4 items-center justify-center">
-                    <div class="flex flex-col items-center gap-2">
-                        <div class="flex items-center justify-center bg-white w-12 h-12 rounded-full shadow-lg">
-                            <img :src="Icons.GOOGLE" alt="edit" width="23" />
-                        </div>
-                    </div>
+                    <gr-circle-button url="#">
+                        <img :src="Icons.GOOGLE" alt="edit" width="23" />
+                    </gr-circle-button>
 
-                    <div class="flex flex-col items-center gap-2">
-                        <div class="flex items-center justify-center bg-white w-12 h-12 rounded-full shadow-lg">
-                            <img :src="Icons.GITHUB" alt="edit" width="23" />
-                        </div>
-                    </div>
+                    <gr-circle-button url="#">
+                        <img :src="Icons.GITHUB" alt="edit" width="23" />
+                    </gr-circle-button>
                 </div>
             </form>
         </section>

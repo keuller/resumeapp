@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <header class="flex bg-white sticky -top-2 shadow-md py-2">
+    <header class="flex bg-white sticky -top-2 shadow-md py-2 z-50">
         <div class="flex flex-1 items-center px-3 justify-between">
             <img :src="Icons.LOGO" alt="logo" />
 
