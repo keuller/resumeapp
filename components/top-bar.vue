@@ -1,0 +1,16 @@
+<script setup lang="ts">
+    import { Icons } from '~/lib/icons';
+</script>
+
+<template>
+    <header class="flex bg-white sticky -top-2 shadow-md py-2">
+        <div class="flex flex-1 items-center px-3 justify-between">
+            <img :src="Icons.LOGO" alt="logo" />
+
+            <a href="#" class="flex items-center gap-1 w-[70px]">
+                <img :src="Icons.USER" alt="user" width="24" height="24" />
+                <span class="text-sm">Log in</span>
+            </a>
+        </div>
+    </header>
+</template>

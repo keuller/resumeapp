@@ -1,202 +1,115 @@
 <script setup lang="ts">
     import { Icons } from '~/lib/icons';
-    import GrBadge from '~/components/atoms/gr-badge.vue';
-    import InterestItem from '~/components/interest-item.vue';
-    import SkillItem from '~/components/skill-item.vue';
-    import LangItem from '~/components/lang-item.vue';
-    import ExperienceItem from '~/components/experience-item.vue';
+    import GrButton from '~/components/atoms/gr-button.vue';
+    import TopBar from '~/components/top-bar.vue';
     import FooterPage from '~/components/footer-page.vue';
 </script>
 
 <template>
     <div class="relative flex flex-col w-full">
-        <header class="lg:pt-2 pb-2 sticky -top-2">
-            <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4">
-                        <img :src="Icons.AVATAR"
-                            alt="avatar" width="64" height="64"
-                            class="rounded-full h-16 w-16" />
+        <top-bar />
 
-                        <div class="flex flex-col tracking-wide">
-                            <span class="font-semibold">Abdoral Gusmao</span>
-                            <span class="text-sm text-slate-500">Sr. Software Engineer</span>
-                            <div class="flex gap-2 text-sm text-slate-500">
-                                <img :src="Icons.EMAIL" alt="email" width="16" height="16"/>
-                                <span class="text-sm text-slate-500">abdoral.gusmao@gmail.com</span>
-                            </div>
+        <section id="register" class="flex flex-col items-center justify-center bg-gray-100 min-h-[620px] px-10">
+            <form id="register" class="flex-1 flex flex-col gap-2 justify-center w-full">
+                <input type="text" name="full_name"
+                    placeholder="Full name" maxlength="50"
+                    class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
+
+                <input id="email" type="email" name="full_name"
+                    placeholder="E-mail" maxlength="120"
+                    class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
+
+                <input id="password" type="password" name="password"
+                    placeholder="Password" maxlength="40"
+                    class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
+
+                <input id="conf_pass" type="password" name="conf_pass"
+                    placeholder="Repeat Password" maxlength="40"
+                    class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
+
+                <gr-button kind="primary">
+                    <span>Register</span>
+                </gr-button>
+
+                <div class="relative flex flex-col mt-3">
+                    <div class="border-t-1 border-gray-400 mt-2">&nbsp;</div>
+                    <span class="absolute text-sm -top-0 left-[50%] translate-x-[-50%] z-20 bg-gray-100 px-2">OR</span>
+                </div>
+
+                <div class="flex gap-4 items-center justify-center">
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="flex items-center justify-center bg-white w-12 h-12 rounded-full shadow-lg">
+                            <img :src="Icons.GOOGLE" alt="edit" width="23" />
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="flex items-center justify-center bg-white w-12 h-12 rounded-full shadow-lg">
+                            <img :src="Icons.GITHUB" alt="edit" width="23" />
                         </div>
                     </div>
                 </div>
+            </form>
+        </section>
 
-                <div class="lg:hidden">
-                    <a href="#" title="Share">
-                        <img :src="Icons.SHARE" width="22" height="22" alt="share" />
-                    </a>
+        <section id="steps" class="flex flex-col gap-8 items-center justify-center bg-[#CCEDFF] min-h-[760px]">
+            <div class="flex flex-col items-center gap-2">
+                <div class="flex items-center justify-center bg-white w-20 h-20 rounded-full shadow-lg">
+                    <img :src="Icons.USER_BLUE" alt="user" width="33" />
                 </div>
+                <h2 class="font-semibold">Step 1</h2>
+                <span>Create an account</span>
             </div>
-        </header>
 
-        <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
-            <aside class="w-72 hidden lg:block">
-                <div class="flex flex-col gap-2 bg-slate-100p-2">
-
-                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
-                        <h2 class="box-title">Interests</h2>
-                        <ul class="flex flex-col gap-1 pb-2">
-                            <InterestItem name="Web Development" />
-                            <InterestItem name="Mobile Development" />
-                            <InterestItem name="Cloud Development" />
-                            <InterestItem name="Microservices" />
-                            <InterestItem name="AI/ML" />
-                        </ul>
-                    </div>
-
-                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
-                        <h2 class="box-title">Skills</h2>
-                        <ul class="flex flex-col gap-2 pb-2 items">
-                            <SkillItem name="Koa/Express" :value="4" />
-
-                            <SkillItem name="Vue3/Nuxt3" :value="4" />
-
-                            <SkillItem name="TailwindCSS" :value="3" />
-
-                            <SkillItem name="React/NextJS" :value="3" />
-
-                            <SkillItem name="Docker" :value="3" />
-
-                            <SkillItem name="MongoDB" :value="4" />
-
-                            <SkillItem name="PostgreSQL" :value="4" />
-                        </ul>
-                    </div>
-
-                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
-                        <h2 class="box-title">Languages</h2>
-                        <ul class="flex flex-col gap-2 pl-1 pb-2">
-                            <LangItem name="Portugues" :value="5" />
-                            <LangItem name="English" :value="3" />
-                            <LangItem name="French" :value="1" />
-                        </ul>
-                    </div>
-
-                    <div class="bg-white px-3 py-2 rounded-md shadow hover:shadow-md">
-                        <h2 class="box-title">Social Medias</h2>
-                        <ul class="flex px-1 gap-2 pb-2">
-                            <li class="text-sm">
-                                <a href="#" target="_new" class="outline-none">
-                                    <img :src="Icons.LINKEDIN" class="h-8 w-8" alt="linkedin"/>
-                                </a>
-                            </li>
-                            <li class="text-sm">
-                                <a href="#" class="outline-none" target="_new">
-                                    <img :src="Icons.GITHUB" class="h-8 w-8" alt="github"/>
-                                </a>
-                            </li>
-                            <li class="text-sm">
-                                <a href="#" class="outline-none" target="_new">
-                                    <img :src="Icons.GITLAB" class="h-8 w-8" alt="gitlab"/>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="flex items-center justify-center bg-white w-20 h-20 rounded-full shadow-lg">
+                    <img :src="Icons.EDIT_BLUE" alt="edit" width="33" />
                 </div>
-            </aside>
+                <h2 class="font-semibold">Step 2</h2>
+                <span>Fill out your resume</span>
+            </div>
 
-            <main class="flex flex-col gap-3 flex-1 w-full">
-                <section class="bg-white rounded p-2 shadow hover:shadow-md">
-                    <div class="flex items-center justify-between pl-2">
-                        <h2 class="box-title">PROFESSIONAL EXPERIENCE</h2>
-                        <a href="#" class="hidden" title="Edit">
-                            Edit
-                        </a>
-                    </div>
+            <div class="flex flex-col gap-2 items-center">
+                <div class="flex items-center justify-center bg-white w-20 h-20 rounded-full shadow-lg">
+                    <img :src="Icons.SHARE_BLUE" alt="share" width="33" />
+                </div>
+                <h2 class="font-semibold">Step 3</h2>
+                <span>Share away</span>
+            </div>
 
-                    <ExperienceItem company="Acme Inc"
-                        job="Engineer Manager"
-                        startDate="2023-05-02"
-                        endDate=""
-                        :mode="1" />
+            <div class="mt-2">
+                <span class="leading-10 text-4xl">That simple</span>
+            </div>
+        </section>
 
-                    <ExperienceItem company="Acme Inc"
-                        job="Tech Lead"
-                        startDate="2022-02-02"
-                        endDate="2023-05-07"
-                        :mode="1" />
+        <section id="story" class="flex flex-col gap-10 bg-slate-100 min-h-[600px] px-9 py-8">
+            <h2 class="text-4xl font-normal leading-10">Our Story</h2>
 
-                    <ExperienceItem company="Activate Inc"
-                        job="Senior Engineer"
-                        startDate="2021-01-11"
-                        endDate="2022-05-07"
-                        :mode="1" />
+            <article>
+                <h3 class="font-bold text-base leading-6 pb-4">Founded on a wish</h3>
+                <p>Fusce vel sapien molestie, sagittis enim non, luctus purus. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. </p>
+            </article>
 
-                    <ExperienceItem company="Woods Inc"
-                        job="Software Engineer"
-                        startDate="2020-04-10"
-                        endDate="2021-04-16"
-                        :mode="2" />
+            <article>
+                <h3 class="font-bold text-base leading-6 pb-4">Out of the head</h3>
+                <p>Fusce vel sapien molestie, sagittis enim non, luctus purus. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. </p>
+            </article>
 
-                    <ExperienceItem company="ShowBox Co"
-                        job="Software Engineer"
-                        startDate="2018-01-05"
-                        endDate="2020-04-15"
-                        :mode="1" />
-                </section>
+            <article>
+                <h3 class="font-bold text-base leading-6 pb-4">Making it true</h3>
+                <p>Fusce vel sapien molestie, sagittis enim non, luctus purus. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. </p>
+            </article>
 
-                <section class="bg-white rounded p-2 shadow hover:shadow-md">
-                    <div class="pl-2">
-                        <h2 class="box-title">PROJECTS</h2>
-                        <a href="#" class="hidden" aria-hidden="true" title="Edit">
-                            Edit
-                        </a>
-                    </div>
+            <div class="bg-white border border-blue-400 text-blue-400 rounded-xl text-center shadow-xl py-3">
+                <p>We're just getting started!</p>
+                <p>Be a part of our next chapter.</p>
+            </div>
 
-                    <div class="flex flex-col p-3 border-t-1">
-                        <h3 class="font-bold">Project Name</h3>
-                        <div class="text-sm leading-5 text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                        <div class="flex flex-wrap gap-2 py-2">
-                            <gr-badge name="Express" />
-                            <gr-badge name="Vue" />
-                            <gr-badge name="TailwindCSS" />
-                            <gr-badge name="Nuxt3" />
-                            <gr-badge name="MongoDB" />
-                            <gr-badge name="Cognito" />
-                            <gr-badge name="SES" />
-                            <gr-badge name="S3" />
-                        </div>
-                    </div>
+            <gr-button kind="primary">
+                <span>Register</span>
+            </gr-button>
+        </section>
 
-                    <div class="flex flex-col p-3 border-t-1">
-                        <h3 class="font-bold">Project Name</h3>
-                        <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                        <div class="flex flex-wrap gap-2 py-2">
-                            <gr-badge name="Fastify" />
-                            <gr-badge name="Svelte" />
-                            <gr-badge name="TailwindCSS" />
-                            <gr-badge name="Postgres" />
-                            <gr-badge name="Coginito" />
-                            <gr-badge name="Docker" />
-                            <gr-badge name="S3" />
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col p-3 border-t-1">
-                        <h3 class="font-bold">Project Name</h3>
-                        <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                        <div class="flex flex-wrap gap-2 py-2">
-                            <gr-badge name="Koa" />
-                            <gr-badge name="Vue" />
-                            <gr-badge name="TailwindCSS" />
-                            <gr-badge name="Firebase" />
-                            <gr-badge name="MySQL" />
-                            <gr-badge name="TypeORM" />
-                            <gr-badge name="Docker" />
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
-
-        <FooterPage />
+        <footer-page />
     </div>
 </template>

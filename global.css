@@ -8,7 +8,7 @@ body {
     font-family: 'Noto Sans', Tahoma, Geneva, sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: rgba(204, 237, 255, 25%);
+    background-color: #FFFFFF;
 }
 
 .box-title {
