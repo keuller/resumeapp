@@ -34,6 +34,10 @@ export default defineNuxtConfig({
         componentIslands: true
     },
 
+    components: {
+        global: true
+    },
+
     postcss: {
         plugins: {
             tailwindcss: {},

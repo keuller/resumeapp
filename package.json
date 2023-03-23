@@ -21,8 +21,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.11",
-    "@vercel/node": "^2.9.12",
-    "firebase": "^9.17.2",
+    "@vercel/node": "^2.9.14",
     "node-appwrite": "^8.2.0"
   }
 }

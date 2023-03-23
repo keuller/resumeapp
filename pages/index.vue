@@ -1,10 +1,11 @@
 <script setup lang="ts">
-    import shareIcon from '~/assets/share.png';
-    import linkedin from '~/assets/linkedin.png';
-    import github from '~/assets/github.webp';
-    import gitlab from '~/assets/gitlab.png';
-    import avatar from '~/assets/avatar-placeholder.webp';
-    import emailIcon from '~/assets/email-icon.svg';
+    import { Icons } from '~/lib/icons';
+    import GrBadge from '~/components/atoms/gr-badge.vue';
+    import InterestItem from '~/components/interest-item.vue';
+    import SkillItem from '~/components/skill-item.vue';
+    import LangItem from '~/components/lang-item.vue';
+    import ExperienceItem from '~/components/experience-item.vue';
+    import FooterPage from '~/components/footer-page.vue';
 </script>
 
 <template>
@@ -12,9 +13,8 @@
         <header class="lg:pt-2 pb-2 sticky -top-2">
             <div class="flex justify-between items-center bg-white xs:w-full lg:w-[990px] lg:mx-auto rounded-md px-4 py-2 shadow">
                 <div class="flex flex-col gap-4">
-
                     <div class="flex gap-4">
-                        <img :src="avatar"
+                        <img :src="Icons.AVATAR"
                             alt="avatar" width="64" height="64"
                             class="rounded-full h-16 w-16" />
 
@@ -22,7 +22,7 @@
                             <span class="font-semibold">Abdoral Gusmao</span>
                             <span class="text-sm text-slate-500">Sr. Software Engineer</span>
                             <div class="flex gap-2 text-sm text-slate-500">
-                                <img :src="emailIcon" alt="email" width="16" height="16"/>
+                                <img :src="Icons.EMAIL" alt="email" width="16" height="16"/>
                                 <span class="text-sm text-slate-500">abdoral.gusmao@gmail.com</span>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
 
                 <div class="lg:hidden">
                     <a href="#" title="Share">
-                        <img :src="shareIcon" width="22" height="22" alt="share" />
+                        <img :src="Icons.SHARE" width="22" height="22" alt="share" />
                     </a>
                 </div>
             </div>
@@ -85,17 +85,17 @@
                         <ul class="flex px-1 gap-2 pb-2">
                             <li class="text-sm">
                                 <a href="#" target="_new" class="outline-none">
-                                    <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
+                                    <img :src="Icons.LINKEDIN" class="h-8 w-8" alt="linkedin"/>
                                 </a>
                             </li>
                             <li class="text-sm">
                                 <a href="#" class="outline-none" target="_new">
-                                    <img :src="github" class="h-8 w-8" alt="github"/>
+                                    <img :src="Icons.GITHUB" class="h-8 w-8" alt="github"/>
                                 </a>
                             </li>
                             <li class="text-sm">
                                 <a href="#" class="outline-none" target="_new">
-                                    <img :src="gitlab" class="h-8 w-8" alt="gitlab"/>
+                                    <img :src="Icons.GITLAB" class="h-8 w-8" alt="gitlab"/>
                                 </a>
                             </li>
                         </ul>
@@ -155,14 +155,14 @@
                         <h3 class="font-bold">Project Name</h3>
                         <div class="text-sm leading-5 text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
                         <div class="flex flex-wrap gap-2 py-2">
-                            <Badge name="Express" />
-                            <Badge name="Vue" />
-                            <Badge name="TailwindCSS" />
-                            <Badge name="Nuxt3" />
-                            <Badge name="MongoDB" />
-                            <Badge name="Cognito" />
-                            <Badge name="SES" />
-                            <Badge name="S3" />
+                            <gr-badge name="Express" />
+                            <gr-badge name="Vue" />
+                            <gr-badge name="TailwindCSS" />
+                            <gr-badge name="Nuxt3" />
+                            <gr-badge name="MongoDB" />
+                            <gr-badge name="Cognito" />
+                            <gr-badge name="SES" />
+                            <gr-badge name="S3" />
                         </div>
                     </div>
 
@@ -170,13 +170,13 @@
                         <h3 class="font-bold">Project Name</h3>
                         <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
                         <div class="flex flex-wrap gap-2 py-2">
-                            <Badge name="Fastify" />
-                            <Badge name="Svelte" />
-                            <Badge name="TailwindCSS" />
-                            <Badge name="Postgres" />
-                            <Badge name="Coginito" />
-                            <Badge name="Docker" />
-                            <Badge name="S3" />
+                            <gr-badge name="Fastify" />
+                            <gr-badge name="Svelte" />
+                            <gr-badge name="TailwindCSS" />
+                            <gr-badge name="Postgres" />
+                            <gr-badge name="Coginito" />
+                            <gr-badge name="Docker" />
+                            <gr-badge name="S3" />
                         </div>
                     </div>
 
@@ -184,13 +184,13 @@
                         <h3 class="font-bold">Project Name</h3>
                         <div class="text-sm text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
                         <div class="flex flex-wrap gap-2 py-2">
-                            <Badge name="Koa" />
-                            <Badge name="Vue" />
-                            <Badge name="TailwindCSS" />
-                            <Badge name="Firebase" />
-                            <Badge name="MySQL" />
-                            <Badge name="TypeORM" />
-                            <Badge name="Docker" />
+                            <gr-badge name="Koa" />
+                            <gr-badge name="Vue" />
+                            <gr-badge name="TailwindCSS" />
+                            <gr-badge name="Firebase" />
+                            <gr-badge name="MySQL" />
+                            <gr-badge name="TypeORM" />
+                            <gr-badge name="Docker" />
                         </div>
                     </div>
                 </section>

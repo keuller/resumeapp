@@ -1,16 +1,18 @@
 <script setup lang="ts">
-    import linkedin from '~/assets/linkedin.png';
-    import github from '~/assets/github.webp';
-    import gitlab from '~/assets/gitlab.png';
-    import shareIcon from '~/assets/share.png';
-    import editIcon from '~/assets/edit.svg';
-    import emailIcon from '~/assets/email-icon.svg';
-    import emptyAvatar from '~/assets/avatar-empty.png';
+    import { Icons } from '~/lib/icons';
+    import EmptyContent from '~/components/empty-content.vue';
+    import InterestItem from '~/components/interest-item.vue';
+    import SkillItem from '~/components/skill-item.vue';
+    import LangItem from '~/components/lang-item.vue';
+    import ExperienceItem from '~/components/experience-item.vue';
+    import ProjectItem from '~/components/project-item.vue';
+    import Loader from '~/components/atoms/gr-loader.vue';
+    import FooterPage from '~/components/footer-page.vue';
 
     const route = useRoute();
     const fullName = ref<string>('');
     const mailTo = ref<string>('');
-    const avatar = ref<string>(emptyAvatar)
+    const avatar = ref<string>(Icons.EMPTY_AVATAR);
 
     const { data, pending } = useAsyncData('resume', () => $fetch(`/api/people/${route.params.slug}`));
 
@@ -52,7 +54,7 @@
                             <span class="font-semibold">{{ data?.firstName }} {{ data?.lastName }}</span>
                             <span class="text-sm text-slate-500">{{ data?.jobTitle }}</span>
                             <div class="flex gap-2 text-sm text-slate-500">
-                                <img :src="emailIcon" alt="email" width="16" height="16"/>
+                                <img :src="Icons.EMAIL" alt="email" width="16" height="16"/>
                                 <span><a :href="mailTo">{{ data?.email }}</a></span>
                             </div>
                         </div>
@@ -82,7 +84,7 @@
 
                 <div class="flex items-center justify-center w-8 h-8 lg:hidden">
                     <a href="#" title="Share" @click.prevent="doShare">
-                        <img :src="shareIcon" width="22" height="22" alt="share" />
+                        <img :src="Icons.SHARE" width="22" height="22" alt="share" />
                     </a>
                 </div>
             </div>
@@ -125,17 +127,17 @@
                         <ul v-if="!pending" class="flex px-1 gap-2 pb-2">
                             <li v-if="data?.linkedin !== null" class="text-sm">
                                 <a :href="data?.linkedin" target="_new" class="outline-none">
-                                    <img :src="linkedin" class="h-8 w-8" alt="linkedin"/>
+                                    <img :src="Icons.LINKEDIN" class="h-8 w-8" alt="linkedin"/>
                                 </a>
                             </li>
                             <li v-if="data?.github !== null" class="text-sm">
                                 <a :href="data?.github" class="outline-none" target="_new">
-                                    <img :src="github" class="h-8 w-8" alt="github" />
+                                    <img :src="Icons.GITHUB" class="h-8 w-8" alt="github" />
                                 </a>
                             </li>
                             <li v-if="data?.gitlab !== null" class="text-sm">
                                 <a :href="data?.gitlab" class="outline-none" target="_new">
-                                    <img :src="gitlab" class="h-8 w-8" alt="gitlab" />
+                                    <img :src="Icons.GITLAB" class="h-8 w-8" alt="gitlab" />
                                 </a>
                             </li>
                         </ul>
@@ -148,7 +150,7 @@
                     <div class="flex items-center justify-between pl-2">
                         <h2 class="box-title">PROFESSIONAL EXPERIENCE</h2>
                         <a href="#" class="hidden">
-                            <img :src="editIcon" width="16" height="16" alt="Edit" title="Edit" />
+                            <img :src="Icons.EDIT" width="16" height="16" alt="Edit" title="Edit" />
                         </a>
                     </div>
 
