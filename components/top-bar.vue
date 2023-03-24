@@ -4,7 +4,7 @@
 
 <template>
     <header class="flex bg-white sticky -top-1 shadow-md py-2 z-50">
-        <div class="flex flex-1 items-center px-3 justify-between">
+        <div class="flex flex-1 items-center px-3 lg:px-16 justify-between">
             <NuxtLink to="/">
                 <img :src="Icons.LOGO" alt="logo" />
             </NuxtLink>
