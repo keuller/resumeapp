@@ -10,8 +10,10 @@
     <div class="relative flex flex-col w-full">
         <top-bar />
 
-        <section id="register" class="flex flex-col items-center justify-center bg-gray-100 min-h-[620px] px-10">
-            <form id="register" class="flex-1 flex flex-col gap-2 justify-center w-full">
+        <section id="register" class="relative flex flex-col items-center justify-center bg-gray-100 min-h-[620px] px-10">
+            <div class="bg-hero"></div>
+
+            <form id="register" class="absolute inset-0 z-20 px-10 flex-1 flex flex-col gap-2 justify-center w-full">
                 <input type="text" name="full_name"
                     placeholder="Full name" maxlength="50"
                     class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
@@ -28,13 +30,18 @@
                     placeholder="Repeat Password" maxlength="40"
                     class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
 
-                <gr-button kind="primary">
-                    <span>Register</span>
-                </gr-button>
+                <div class="mt-2">
+                    <gr-button kind="primary">
+                        <span>Register</span>
+                    </gr-button>
+                </div>
 
-                <div class="relative flex flex-col mt-3">
-                    <div class="border-t-1 border-gray-400 mt-2">&nbsp;</div>
-                    <span class="absolute text-sm -top-0 left-[50%] translate-x-[-50%] z-20 bg-gray-100 px-2">OR</span>
+                <div class="relative flex flex-col mt-3 mb-3 px-10">
+                    <div class="flex items-center justify-center">
+                        <div class="flex-1 border h-0 border-gray-400">&nbsp;</div>
+                        <div class="text-sm px-2">OR</div>
+                        <div class="flex-1 border h-0 border-gray-400">&nbsp;</div>
+                    </div>
                 </div>
 
                 <div class="flex gap-4 items-center justify-center">
@@ -110,3 +117,9 @@
         <footer-page />
     </div>
 </template>
+
+<style scoped>
+.bg-hero {
+    @apply absolute inset-0 z-10 bg-[url('/img/hero-desktop.webp')] opacity-75 blur-sm bg-cover bg-center;
+}
+</style>
