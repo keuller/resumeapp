@@ -10,3 +10,5 @@ client.setEndpoint('https://cloud.appwrite.io/v1')
 export const db = new sdk.Databases(client);
 
 export const account = new sdk.Account(client);
+
+export const genId = (): string => sdk.ID.unique()
