@@ -2,7 +2,7 @@ import { H3Event } from 'h3';
 import { ID } from 'node-appwrite';
 import { Register } from '~/types';
 import { getToken } from '~/server/api/util/get-token';
-import { sendEmailVerification } from './people.service';
+import { Person } from './people.service';
 
 export default defineEventHandler(async (ev: H3Event) => {
     const data = await readBody(ev) as Register;
@@ -30,7 +30,7 @@ export default defineEventHandler(async (ev: H3Event) => {
     }).then(data => {
         const [account, token] = data;
         console.log('debug:', account, token);
-        return sendEmailVerification(account.$id, token);
+        return Person.sendEmailVerification(account.$id, token);
     }).then(res => {
         ev.node.res.statusCode = 201;
         return {

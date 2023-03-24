@@ -66,7 +66,8 @@ export default defineNuxtConfig({
     ],
 
     runtimeConfig: {
-        devApiKey: process.env.DEV_API_KEY
+        devApiKey: process.env.DEV_API_KEY,
+        DATABASE: process.env.DATABASE || 'resumedb-dev'
     },
 
     appConfig: {

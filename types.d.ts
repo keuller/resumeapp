@@ -1,30 +1,54 @@
-export type SkillSet = {
-    oid: string,
-    category: string,
-    name: string,
-    value: string,
-    createdAt: Date
-}
+export namespace Model {
+    export type Person = {
+        oid: string,
+        firstName: string,
+        lastName: string,
+        email: string,
+        slug: string,
+        jobTitle: string,
+        avatar: string,
+        jobTitle: string,
+        linkedIn: string,
+        github: string,
+        gitlab: string,
+        twitter: string,
+        interests: string[],
+        createdAt: Date,
+        updatedAt?: Date
+    }
 
-export type Job = {
-    company: string,
-    jobTitle: string,
-    startDate: string,
-    endDate?: string | null,
-    mode: number,
-    createdAt: Date
-}
+    export type SkillSet = {
+        oid: string,
+        category: string,
+        personId: string,
+        name: string,
+        value: string,
+        createdAt: Date
+    }
 
-export type Project = {
-    name: string,
-    description: string,
-    stack: string[],
-    createdAt: Date
-}
+    export type Job = {
+        oid: string,
+        company: string,
+        jobTitle: string,
+        startDate: string,
+        endDate?: string | null,
+        mode: number,
+        createdAt: Date
+    }
 
-type Register = {
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string
+    export type Project = {
+        oid: string,
+        name: string,
+        description: string,
+        stack: string[],
+        createdAt: Date
+    }
+
+    type Register = {
+        firstName: string,
+        lastName: string,
+        email: string,
+        password: string
+    }
+
 }

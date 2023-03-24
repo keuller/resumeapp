@@ -3,7 +3,7 @@ import { Query } from 'node-appwrite';
 import { db } from '~/lib/client';
 import type { SkillSet, Job, Project } from '~/types';
 
-const DB = 'resumedb-dev';
+const cfg = useRuntimeConfig();
 const COLLECTION = '640475a2a7b08deb0966';
 
 type SkillSetView = Omit<SkillSet, "oid" | "createdAt">;
@@ -13,7 +13,7 @@ type JobView = Omit<Job, "createdAt">;
 // load all skillset docs accordinly to the person's ID
 async function loadSkillSet(personId: string): Promise<Array<SkillSetView>> {
     const COLL_NAME = '6409ccbad3937a5e7490';
-    const res = await db.listDocuments(DB, COLL_NAME, [
+    const res = await db.listDocuments(cfg.DATABASE, COLL_NAME, [
         Query.equal('person_id', [personId]),
     ]);
 
@@ -42,7 +42,7 @@ async function loadSkillSet(personId: string): Promise<Array<SkillSetView>> {
 // load all jobs
 async function loadJobs(personId: string): Promise<Array<JobView>> {
     const COLL_NAME = '640475d3244123ffa68b';
-    const res = await db.listDocuments(DB, COLL_NAME, [
+    const res = await db.listDocuments(cfg.DATABASE, COLL_NAME, [
         Query.equal('person_id', [personId]),
         Query.orderAsc('job_start')
     ]);
@@ -73,7 +73,7 @@ async function loadJobs(personId: string): Promise<Array<JobView>> {
 // load all projects
 async function loadProjects(personId: string): Promise<Array<ProjectView>> {
     const COLL_NAME = '640475c30afe05af1377';
-    const res = await db.listDocuments(DB, COLL_NAME, [
+    const res = await db.listDocuments(cfg.DATABASE, COLL_NAME, [
         Query.equal('person_id', [personId]),
     ]);
 
@@ -95,7 +95,7 @@ export default defineEventHandler(async (ev: H3Event) => {
     const { params } = ev.context;
     const slug = params?.slug ?? '';
 
-    const res = await db.listDocuments(DB, COLLECTION, [
+    const res = await db.listDocuments(cfg.DATABASE, COLLECTION, [
         Query.equal('slug', [slug])
     ]);
 
