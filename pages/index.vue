@@ -15,16 +15,16 @@
     <div id="home" class="relative flex flex-col w-full">
         <top-bar />
 
-        <section id="register" class="relative flex flex-col items-center justify-center bg-gray-100 min-h-[620px] px-10 lg:min-h-[850px] lg:justify-end border-b-8 border-b-[#00A3FF]">
+        <section id="register" class="relative flex flex-col lg:flex-row items-center justify-around gap-10 bg-gray-100 min-h-[620px] p-10 lg:min-h-[850px] border-b-8 border-b-[#00A3FF]">
             <div class="bg-hero"></div>
 
-            <div class="absolute hidden lg:block lg:top-0 lg:left-16 z-20 lg:translate-y-[250%]">
-                <h1 class="text-6xl leading-[86px] text-black">Easy. Simple. Fast.</h1>
-                <p class="text-black text-2xl">Create and share your resume in few clicks.</p>
+            <div class="block z-20 text-center">
+                <h1 class="text-3xl md:text-4xl lg:text-6xl leading-[86px] text-black">Easy. Simple. Fast.</h1>
+                <p class="text-1xl md:text-2xl text-black">Create and share your resume in few clicks.</p>
             </div>
 
             <form id="register" class="register-form">
-                <h2 class="text-xl text-slate-700 text-center px-3 leading-8 hidden lg:block">Start now and see!</h2>
+                <h2 class="text-xl text-slate-700 text-center px-3 leading-8 lg:block">Start now and see!</h2>
 
                 <input type="text" name="full_name"
                     placeholder="Full name" maxlength="50"
@@ -100,30 +100,30 @@
             </div>
         </section>
 
-        <section id="story" class="flex flex-col gap-10 lg:items-center bg-slate-100 min-h-[600px] px-9 py-8">
-            <h2 class="text-4xl font-normal leading-10 w-full">Our Story</h2>
+        <section id="story" class="flex flex-col gap-10 items-center bg-slate-100 min-h-[600px] p-10">
+            <h2 class="text-4xl font-normal leading-10 w-full lg:px-16">Our Story</h2>
 
-            <article>
+            <article class="lg:px-16">
                 <h3 class="font-bold text-base leading-6 pb-4">Founded on a wish</h3>
                 <p>Fusce vel sapien molestie, sagittis enim non, luctus purus. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. </p>
             </article>
 
-            <article>
+            <article class="lg:px-16">
                 <h3 class="font-bold text-base leading-6 pb-4">Out of the head</h3>
                 <p>Fusce vel sapien molestie, sagittis enim non, luctus purus. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. </p>
             </article>
 
-            <article>
+            <article class="lg:px-16">
                 <h3 class="font-bold text-base leading-6 pb-4">Making it true</h3>
                 <p>Fusce vel sapien molestie, sagittis enim non, luctus purus. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. </p>
             </article>
 
-            <div class="bg-white border border-blue-400 text-blue-400 rounded-xl text-center shadow-xl py-3 lg:w-[600px]">
+            <div class="bg-white border border-blue-400 text-blue-400 rounded-xl text-center shadow-xl py-3 w-auto xs:w-[300px] sm:w-[400px] lg:w-[600px]">
                 <p class="lg:text-3xl lg:leading-10">We're just getting started!</p>
                 <p class="lg:text-3xl lg:leading-10">Be a part of our next chapter.</p>
             </div>
 
-            <div class="w-full lg:max-w-[260px]">
+            <div class="w-auto xs:w-[260px]">
                 <gr-button kind="primary" @on-click="register()">
                     <span>Register</span>
                 </gr-button>
@@ -140,6 +140,6 @@
 }
 
 .register-form {
-    @apply absolute xs:inset-0 z-20 px-10 xs:flex-1 flex flex-col gap-2 justify-center w-full lg:bg-white lg:w-[480px] lg:h-[680px] lg:rounded-xl lg:shadow-md lg:top-12 lg:left-auto lg:right-16;
+    @apply   z-20 p-10 xs:flex-1 flex flex-col justify-center gap-2 bg-white w-full max-w-[330px] md:max-w-[450px] lg:max-w-[480px] lg:h-[530px] rounded-xl;
 }
 </style>
