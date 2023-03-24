@@ -31,6 +31,7 @@ export namespace Model {
         company: string,
         jobTitle: string,
         startDate: string,
+        personId: string,
         endDate?: string | null,
         mode: number,
         createdAt: Date
