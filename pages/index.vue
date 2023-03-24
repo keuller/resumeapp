@@ -4,10 +4,15 @@
     import GrCircleButton from '~/components/atoms/gr-circle-button.vue';
     import TopBar from '~/components/top-bar.vue';
     import FooterPage from '~/components/footer-page.vue';
+
+    function register() {
+        const el = document.getElementById('home');
+        el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 </script>
 
 <template>
-    <div class="relative flex flex-col w-full">
+    <div id="home" class="relative flex flex-col w-full">
         <top-bar />
 
         <section id="register" class="relative flex flex-col items-center justify-center bg-gray-100 min-h-[620px] px-10 lg:min-h-[850px] lg:justify-end border-b-8 border-b-[#00A3FF]">
@@ -90,8 +95,8 @@
                 </div>
             </div>
 
-            <div class="mt-2 lg:mt-8">
-                <span class="leading-10 text-4xl lg:text-7xl">That simple</span>
+            <div class="mt-2 lg:mt-10">
+                <span class="leading-10 text-3xl lg:text-6xl">That so simple like this.</span>
             </div>
         </section>
 
@@ -119,7 +124,7 @@
             </div>
 
             <div class="w-full lg:max-w-[260px]">
-                <gr-button kind="primary">
+                <gr-button kind="primary" @on-click="register()">
                     <span>Register</span>
                 </gr-button>
             </div>
