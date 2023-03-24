@@ -1,7 +1,13 @@
-<script lang="ts"></script>
+<script setup lang="ts">
+    import TopBar from '~/components/top-bar.vue';
+    import FooterPage from '~/components/footer-page.vue';
+</script>
 
 <template>
-  <section id="terms" class="relative flex flex-col bg-slate-50">
+    <div class="relative flex flex-col w-full">
+        <top-bar />
+
+        <section id="terms" class="relative flex flex-col bg-slate-50 py-3">
     <div class="xs:w-full lg:w-[990px] lg:mx-auto px-4 lg:px-0">
       <h1 class="text-2xl font-bold py-4">Terms and conditions</h1>
       <p class="leading-7 tracking-wide">
@@ -135,7 +141,8 @@
       </p>
       <p class="py-4 text-base text-slate-500">This document was last updated on March 10, 2023</p>
     </div>
+        </section>
 
-    <FooterPage />
-  </section>
+        <footer-page />
+    </div>
 </template>

@@ -3,7 +3,15 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     nitro: {
-        preset: 'vercel'
+        preset: 'vercel',
+        routeRules: {
+            '/': { static: true },
+            'static': {
+                headers: {
+                    'Cache-Control': 'public, s-maxage=0'
+                }
+            }
+        }
     },
 
     app: {
