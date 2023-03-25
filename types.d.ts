@@ -40,6 +40,7 @@ export namespace Model {
     export type Project = {
         oid: string,
         name: string,
+        personId: string,
         description: string,
         stack: string[],
         createdAt: Date

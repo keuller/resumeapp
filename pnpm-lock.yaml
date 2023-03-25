@@ -12,11 +12,13 @@ specifiers:
   svgo: ^3.0.2
   tailwindcss: ^3.2.7
   vite-plugin-image-optimizer: ^1.1.2
+  zod: ^3.21.4
 
 dependencies:
   '@vercel/analytics': 0.1.11
   '@vercel/node': 2.9.14
   node-appwrite: 8.2.0
+  zod: 3.21.4
 
 devDependencies:
   '@nuxtjs/robots': 3.0.0
@@ -5815,3 +5817,7 @@ packages:
       compress-commons: 4.1.1
       readable-stream: 3.6.2
     dev: true
+
+  /zod/3.21.4:
+    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: false
