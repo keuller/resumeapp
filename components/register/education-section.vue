@@ -1,15 +1,10 @@
 <script setup lang="ts">
     import GrButton from '~/components/atoms/gr-button.vue'
     import GrSelect from '~/components/atoms/gr-select.vue'
-
-    const options = [
-        {key:"BR",value:"Brazil"},
-        {key:"PT",value:"Portugal"},
-    ];
 </script>
 
 <template>
-    <section id="location" class="relative flex flex-col bg-white min-h-[560px] px-10 py-5">
+    <section id="education" class="relative flex flex-col bg-white min-h-[560px] px-10 py-5">
             <div class="flex flex-col flex-1 gap-4">
                 <img class="py-5" src="~/assets/breadcrumbs.png" />
                 <div class="flex flex-col gap-4 items-center mb-12">
@@ -18,10 +13,11 @@
                 </div>
                 <div class="flex flex-col gap-8">
                     <div>      
-                        <gr-select id="countries" placeholder="Select a Country" :list="options" />                                           
+                        <gr-select id="countries" placeholder="Select a Country"/>                                           
                     </div>
-                    <div class="flex flex-col">
-                        <input placeholder="City" class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300">                                      
+                    <div class="flex flex-row gap-2">
+                        <gr-select id="states" placeholder="Select a State"/>                                           
+                        <gr-select id="cities" placeholder="Select a City"/>                                           
                     </div>
                 </div>
             </div>
