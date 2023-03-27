@@ -31,6 +31,7 @@ export namespace Model {
         company: string,
         jobTitle: string,
         startDate: string,
+        personId: string,
         endDate?: string | null,
         mode: number,
         createdAt: Date
@@ -39,6 +40,7 @@ export namespace Model {
     export type Project = {
         oid: string,
         name: string,
+        personId: string,
         description: string,
         stack: string[],
         createdAt: Date

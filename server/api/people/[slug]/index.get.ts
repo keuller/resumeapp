@@ -121,6 +121,7 @@ export default defineEventHandler(async (ev: H3Event) => {
         avatar: docs.avatar,
         github: docs.github,
         gitlab: docs.gitlab,
+        twitter: docs.twitter,
         linkedin: docs.linkedin,
         interests: docs.interests,
         skills,

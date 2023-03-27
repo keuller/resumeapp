@@ -1,11 +1,11 @@
 import { H3Event } from 'h3';
 import { ID } from 'node-appwrite';
-import { Register } from '~/types';
+import { Model } from '~/types';
 import { getToken } from '~/server/api/util/get-token';
 import { Person } from './people.service';
 
 export default defineEventHandler(async (ev: H3Event) => {
-    const data = await readBody(ev) as Register;
+    const data = await readBody(ev) as Model.Register;
 
     const { email, password } = data;
     const name = `${data.firstName} ${data.lastName}`;
