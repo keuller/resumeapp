@@ -53,4 +53,10 @@ export namespace Model {
         password: string
     }
 
+    type Country = {
+        oid: string,
+        key: string,
+        value: string
+    }
+
 }
