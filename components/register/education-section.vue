@@ -8,7 +8,6 @@
                              {key:'TC', value:'Bachelor\'s degree'},
                              {key:'TC', value:'Master\'s degree'},
                              {key:'TC', value:'Doctorate degree'}]
-    const section = '';                             
 </script>
 
 <template>
@@ -21,7 +20,7 @@
                 </div>
                 <div class="flex flex-col gap-4">
                     <div class="flex flex-col gap-4">      
-                        <gr-select v-model="section" id="education_level" placeholder="Education" :list="educationLevels" />                                                                                                                            
+                        <gr-select id="education_level" placeholder="Education" :list="educationLevels" />                                                                                                                            
                         <gr-input placeholder="Country" />
                         <gr-input placeholder="Course" /> 
                     </div>
