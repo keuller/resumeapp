@@ -21,10 +21,10 @@
 
 <style scoped>
 .primary {
-    @apply border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300 w-full
+    @apply border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300 w-full h-[40px]
 }
 
 .underlined {
-    @apply  px-2 py-0 outline-none border-b border-b-black focus:border-b-[#00A3FF] w-full
+    @apply  px-2 py-0 outline-none border-b border-b-black focus:border-b-[#00A3FF] w-full h-[40px]
 }
 </style>

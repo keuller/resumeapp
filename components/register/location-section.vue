@@ -20,7 +20,7 @@
                         <gr-select id="countries" placeholder="Country" :list="data" />                                           
                     </div>
                     <div class="flex flex-col">
-                        <gr-input kind="primary" type="text" placeholder="City" />                                      
+                        <gr-input id="city" kind="primary" type="text" placeholder="City" />                                      
                     </div>
                 </div>
             </div>

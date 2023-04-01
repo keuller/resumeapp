@@ -21,20 +21,18 @@
                 <div class="flex flex-col gap-4">
                     <div class="flex flex-col gap-4">      
                         <gr-select id="education_level" placeholder="Education" :list="educationLevels" />                                                                                                                            
-                        <gr-input placeholder="Country" />
-                        <gr-input placeholder="Course" /> 
+                        <gr-input id="education_country" placeholder="Country" />
+                        <gr-input id="education_course" placeholder="Course" /> 
                     </div>
-                    <div class="flex gap-4 items-center">
+                    <div class="flex gap-4 items-center">                
                         <div class="flex-1">
-                            <gr-input type="date"/>
+                            <label for= "education_year" class="font-semibold text-xs text-slate-400">Graduation year</label>
+                            <gr-input id="education_year" type="date"/>
                         </div>
                         <div class="flex-1">
-                            <input id="show_phone" type="checkbox">
-                            <label for="show_phone" class="text-sm"> On going</label>
+                            <input id="education_ongoing" type="checkbox">
+                            <label for="education_ongoing" class="text-sm"> On going</label>
                         </div>                                        
-                    </div>
-                    <div>
-                        
                     </div>
                 </div>
             </div>
