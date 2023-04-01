@@ -27,4 +27,13 @@
 .link{
     @apply text-blue-400 text-sm min-w-[85px] font-bold px-4 py-3 outline-none underline;
 }
+
+.add{
+    @apply text-blue-400 text-base min-w-[85px] outline-none;
+}
+
+.add::before{
+    content: url('/img/add.png');
+    padding-right: 10px;
+}
 </style>

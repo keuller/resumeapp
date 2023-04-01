@@ -36,6 +36,7 @@
                         </div>    
                     <gr-select id="work_schedule" placeholder="Select a work schedule" :list="workSchedules"/>
                     <textarea class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300 w-full h-40 resize-none" placeholder="Description"></textarea>
+                    <gr-button kind="add">SAVE AND ADD NEW EXPERIENCE</gr-button>
                 </div>
             </div>
             <div class="flex w-full items-center justify-between">  
