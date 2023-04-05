@@ -3,9 +3,9 @@
     import GrInput from '~/components/atoms/gr-input.vue'
 </script>
 <template>
-    <section id="contact" class="relative flex flex-col w-full bg-white min-h-[560px] px-10 py-5">
-            <div class="flex flex-col flex-1 gap-4">
-                <img class="py-5" src="/img/breadcrumbs.png" />
+    <section id="contact" class="relative flex flex-col w-full bg-white min-h-[560px] gap-9">
+            <div class="flex flex-col flex-1 px-5 py-5 gap-4">
+                <img class="pb-5" src="/img/breadcrumbs.png" />
                 <div class="flex flex-col gap-3 items-center mb-8">
                     <img src="/img/phone.png">
                     <h3 class="font-semibold text-base"> Want to add you phone number? </h3>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex w-full items-center justify-end">        
+            <div class="flex w-full items-center px-4 justify-end">        
                 <gr-button kind="link">Skip</gr-button> 
                 <gr-button kind="primary">Next</gr-button> 
             </div>

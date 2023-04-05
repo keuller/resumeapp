@@ -27,4 +27,8 @@
 .underlined {
     @apply  px-2 py-0 outline-none border-b border-b-black focus:border-b-[#00A3FF] w-full h-[40px]
 }
+
+.radio{
+    @apply border h-[20px] w-[20px]
+}
 </style>

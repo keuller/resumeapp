@@ -10,9 +10,9 @@
 </script>
 
 <template>
-    <section id="location" class="relative flex flex-col w-full bg-white min-h-[560px] px-10 py-5 gap-8">
-            <div class="flex flex-col flex-1 gap-4">
-                <img src="/img/breadcrumbs.png" />
+    <section id="location" class="relative flex flex-col w-full bg-white min-h-[560px] gap-9">
+            <div class="flex flex-col flex-1 px-5 py-5 gap-4">
+                <img class="pb-5" src="/img/breadcrumbs.png" />
                 <div class="flex flex-col gap-3 items-center mb-8">
                     <img src="/img/experience.png">
                     <h3 class="font-semibold text-base"> Tell us your story *-*</h3>
@@ -39,7 +39,7 @@
                     <gr-button kind="add">SAVE AND ADD NEW EXPERIENCE</gr-button>
                 </div>
             </div>
-            <div class="flex w-full items-center justify-between">  
+            <div class="flex w-full items-center px-4 justify-between">  
                 <div>
                     <gr-button kind="outline">Back</gr-button>                     
                 </div>

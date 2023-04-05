@@ -11,9 +11,9 @@
 </script>
 
 <template>
-    <section id="education" class="relative flex flex-col w-full bg-white min-h-[560px] px-10 py-5">
-            <div class="flex flex-col flex-1 gap-4">
-                <img class="py-5" src="/img/breadcrumbs.png" />
+    <section id="education" class="relative flex flex-col w-full bg-white min-h-[560px]">
+            <div class="flex flex-col flex-1 px-5 py-5 gap-4">
+                <img class="pb-5" src="/img/breadcrumbs.png" />
                 <div class="flex flex-col gap-3 items-center mb-8">
                     <img src="/img/education.png">
                     <h3 class="font-semibold text-base"> Show us what you've got :D</h3>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex w-full items-center justify-between">  
+            <div class="flex w-full items-center px-4 justify-between">  
                 <div>
                     <gr-button kind="outline">Back</gr-button>                     
                 </div>

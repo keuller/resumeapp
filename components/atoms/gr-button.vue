@@ -25,15 +25,15 @@
 }
 
 .link{
-    @apply text-blue-400 text-sm min-w-[85px] font-bold px-4 py-3 outline-none underline;
+    @apply text-blue-400 text-sm font-bold px-5 py-3 outline-none underline;
 }
 
 .add{
-    @apply text-blue-400 text-base min-w-[85px] outline-none;
+    @apply text-blue-400 text-base w-auto outline-none;
 }
 
 .add::before{
     content: url('/img/add.png');
-    padding-right: 10px;
+    padding: 10px;
 }
 </style>
