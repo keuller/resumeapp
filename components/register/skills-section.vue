@@ -10,7 +10,7 @@
 </script>
 
 <template>
-    <section id="location" class="relative flex flex-col w-full bg-white min-h-[560px] px-5 py-5 gap-9">
+    <section id="skills" class="relative flex flex-col w-full bg-white min-h-[560px] px-5 py-5 gap-9">
             <div class="flex flex-col flex-1 gap-4">
                 <img class="pb-5" src="/img/breadcrumbs.png" />
                 <div class="flex flex-col gap-3 items-center mb-8">
