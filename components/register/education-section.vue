@@ -8,6 +8,9 @@
                              {key:'TC', value:'Bachelor\'s degree'},
                              {key:'TC', value:'Master\'s degree'},
                              {key:'TC', value:'Doctorate degree'}]
+    const emit = defineEmits(['doNext','doPrevious']);
+    const next = () => emit('doNext');
+    const previous = () => emit('doPrevious');                             
 </script>
 
 <template>
@@ -24,12 +27,12 @@
                         <gr-input id="education_country" placeholder="Country" />
                         <gr-input id="education_course" placeholder="Course" /> 
                     </div>
-                    <div class="flex gap-4 items-center">                
+                    <div class="flex gap-4 items-end">                
                         <div class="flex-1">
                             <label for= "education_year" class="font-semibold text-xs text-slate-400">Graduation year</label>
                             <gr-input id="education_year" type="date"/>
                         </div>
-                        <div class="flex-1">
+                        <div class="flex-1 flex items-center gap-2 pb-3">
                             <input id="education_ongoing" type="checkbox">
                             <label for="education_ongoing" class="text-sm"> On going</label>
                         </div>                                        
@@ -38,11 +41,11 @@
             </div>
             <div class="flex w-full items-center px-4 justify-between">  
                 <div>
-                    <gr-button kind="outline">Back</gr-button>                     
+                    <gr-button @onClick="previous()" kind="outline">Back</gr-button> 
                 </div>
                 <div>
                     <gr-button kind="link">Skip</gr-button> 
-                    <gr-button kind="primary">Next</gr-button> 
+                    <gr-button @onClick="next()" kind="primary">Next</gr-button> 
                 </div>                
             </div>
         </section>

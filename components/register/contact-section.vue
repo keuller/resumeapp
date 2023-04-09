@@ -1,6 +1,11 @@
 <script setup lang="ts">
     import GrButton from '~/components/atoms/gr-button.vue'
     import GrInput from '~/components/atoms/gr-input.vue'
+
+    const emit = defineEmits(['doNext','doPrevious']);
+    const next = () => emit('doNext');
+    const previous = () => emit('doPrevious');
+    
 </script>
 <template>
     <section id="contact" class="relative flex flex-col w-full bg-white min-h-[560px] gap-9">
@@ -28,7 +33,7 @@
             </div>
             <div class="flex w-full items-center px-4 justify-end">        
                 <gr-button kind="link">Skip</gr-button> 
-                <gr-button kind="primary">Next</gr-button> 
+                <gr-button @onClick="next()" kind="primary">Next</gr-button> 
             </div>
         </section>
 </template>

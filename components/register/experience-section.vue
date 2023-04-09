@@ -6,7 +6,10 @@
     const workSchedules = [{key:'FT', value:'Full-time'},
                              {key:'PT', value:'Part-time'},
                              {key:'IT', value:'Internship'},
-                             {key:'FL', value:'Freelancer'}]
+                             {key:'FL', value:'Freelancer'}];
+    const emit = defineEmits(['doNext','doPrevious']);
+    const next = () => emit('doNext');
+    const previous = () => emit('doPrevious');                             
 </script>
 
 <template>
@@ -30,22 +33,22 @@
                             <gr-input id="end_date" type="date"/>
                         </div>  
                     </div>
-                    <div class=" flex flex-1 gap-4">
+                    <div class=" flex flex-1 gap-2">
                             <input id="education_ongoing" type="checkbox">
                             <label for="education_ongoing" class="text-sm ">Present Job</label>
-                        </div>    
+                    </div>    
                     <gr-select id="work_schedule" placeholder="Select a work schedule" :list="workSchedules"/>
                     <textarea class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300 w-full h-40 resize-none" placeholder="Description"></textarea>
                     <gr-button kind="add">SAVE AND ADD NEW EXPERIENCE</gr-button>
                 </div>
             </div>
-            <div class="flex w-full items-center px-4 justify-between">  
+            <div class="flex w-full items-center px-4 pb-4 justify-between">  
                 <div>
-                    <gr-button kind="outline">Back</gr-button>                     
+                    <gr-button @onClick="previous()" kind="outline">Back</gr-button> 
                 </div>
                 <div>
                     <gr-button kind="link">Skip</gr-button> 
-                    <gr-button kind="primary">Next</gr-button> 
+                    <gr-button @onClick="next()" kind="primary">Next</gr-button> 
                 </div>                
             </div>
         </section>

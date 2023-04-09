@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import GrButton from '~/components/atoms/gr-button.vue';
-import GrInput from '~/components/atoms/gr-input.vue';
+    import GrButton from '~/components/atoms/gr-button.vue';
+    import GrInput from '~/components/atoms/gr-input.vue';
+
+    const emit = defineEmits(['doNext', 'doPrevious']);
+    const next = () => emit('doNext');
+    const previous = () => emit('doPrevious');
 </script>
 
 <template>
@@ -12,37 +16,45 @@ import GrInput from '~/components/atoms/gr-input.vue';
                 <h3 class="font-semibold text-base"> We won't tell if you won't</h3>
             </div>
             <div class="flex flex-col gap-4 px-5">
-                <div class="flex flex-col">
-                    <div class="flex items-center gap-2">
-                        <gr-input id="public" name="privacy" type="radio" kind="radio" />
-                        <label for="public">Public</label>
-                        <img src="/img/lock_open.png">
+                <div class="flex items-start gap-2">
+                    <gr-input id="public" name="privacy" type="radio" kind="radio" />
+                    <div class="flex flex-col">
+                        <div class="flex gap-2">
+                            <label for="public">Public</label>
+                            <img src="/img/lock_open.png" class="w-5 h-5">
+                        </div>                        
+                        <p class="text-xs text-slate-400 font-normal">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a
+                            condimentum eu, aliquam sit amet sapien. Fusce vel sapien molestie, sagittis enim non, luctus
+                            purus.
+                        </p>
                     </div>
-                    <p class="text-xs text-slate-400 font-normal p-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. Fusce vel sapien molestie, sagittis enim non, luctus purus.
-                    </p>
                 </div>
-                <div class="flex flex-col">
-                    <div class="flex items-center gap-2">
-                        <gr-input id="private" name="privacy" type="radio" kind="radio" />
-                        <label for="private">Private</label>
-                        <img src="/img/lock_closed.png">
-                    </div>
-                    <p class="text-xs text-slate-400 font-normal p-2">
-                        Fusce vel sapien molestie, sagittis enim non, luctus purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a condimentum.
-                    </p>
+
+                <div class="flex items-start gap-2">
+                    <gr-input id="private" name="privacy" type="radio" kind="radio" />
+                    <div class="flex flex-col">
+                        <div class="flex gap-2">
+                            <label for="private">Private</label>
+                            <img src="/img/lock_closed.png" class="w-5 h-5">
+                        </div>                        
+                        <p class="text-xs text-slate-400 font-normal">
+                            Fusce vel sapien molestie, sagittis enim non, luctus purus. Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit. Phasellus tortor neque, finibus a condimentum.
+                        </p>
+                    </div>                    
                 </div>
                 <a class="text-xs text-[#00A3FF] underline" href="/privacy/en">Privacy Policy</a>
             </div>
         </div>
         <div class="flex w-full items-center px-4 justify-between">
             <div>
-                <gr-button kind="outline">Back</gr-button>
+                <gr-button @onClick="previous()" kind="outline">Back</gr-button>
             </div>
             <div>
                 <gr-button kind="link">Skip</gr-button>
-                <gr-button kind="primary">Next</gr-button>
+                <gr-button @onClick="next()" kind="primary">Next</gr-button>
             </div>
         </div>
-    </section>
+</section>
 </template>

@@ -21,7 +21,7 @@
 
 <style scoped>
 .primary {
-    @apply border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300 w-full h-[40px]
+    @apply border border-[#C1C1C1] leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300 w-full h-[40px]
 }
 
 .underlined {
@@ -29,6 +29,6 @@
 }
 
 .radio{
-    @apply border h-[20px] w-[20px]
+    @apply h-[20px] w-[20px] mt-1
 }
 </style>

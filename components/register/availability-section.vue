@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import GrButton from '~/components/atoms/gr-button.vue';
-import GrInput from '~/components/atoms/gr-input.vue';
+    import GrButton from '~/components/atoms/gr-button.vue';
+    import GrInput from '~/components/atoms/gr-input.vue';
+    const emit = defineEmits(['doNext','doPrevious']);
+    const next = () => emit('doNext');
+    const previous = () => emit('doPrevious');
 </script>
 
 <template>
@@ -12,35 +15,41 @@ import GrInput from '~/components/atoms/gr-input.vue';
                 <h3 class="font-semibold text-base"> Are you on the hunt?</h3>
             </div>
             <div class="flex flex-col gap-4 px-5">
-                <div class="flex flex-col">
-                    <div class="flex items-center gap-2">
-                        <gr-input id="open_to_work" name="privacy" type="radio" kind="radio" />
-                        <label for="open_to_work">Open to work</label>
-                        <img src="/img/task_checked.png">
-                    </div>
-                    <p class="text-xs text-slate-400 font-normal p-2">
+                <div class="flex items-start gap-2">
+                    <gr-input id="open_to_work" name="privacy" type="radio" kind="radio" />
+                    <div class="flex flex-col">
+                        <div class="flex gap-2">
+                            <label for="open_to_work">Open to work</label>
+                            <img src="/img/task_checked.png" class="w-5 h-5">
+                        </div>
+                        <p class="text-xs text-slate-400 font-normal">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a condimentum eu, aliquam sit amet sapien. Fusce vel sapien molestie, sagittis enim non, luctus purus.
-                    </p>
+                        </p>                        
+                    </div>            
                 </div>
-                <div class="flex flex-col">
-                    <div class="flex items-center gap-2">
-                        <gr-input id="unavailable" name="privacy" type="radio" kind="radio" />
-                        <label for="unavailable">Unavailable for now</label>
-                        <img src="/img/task_unchecked.png">
-                    </div>
-                    <p class="text-xs text-slate-400 font-normal p-2">
+
+                <div class="flex items-start gap-2">
+                    <gr-input id="unavailable" name="privacy" type="radio" kind="radio" />
+                    <div class="flex flex-col">
+                        <div class="flex gap-2">
+                            <label for="unavailable">Unavailable for now</label>
+                            <img src="/img/task_unchecked.png">
+                        </div>                        
+                        <p class="text-xs text-slate-400 font-normal">
                         Fusce vel sapien molestie, sagittis enim non, luctus purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a condimentum.
-                    </p>
+                        </p>
+                    </div>                    
                 </div>
+
             </div>
         </div>
         <div class="flex w-full items-center px-4 justify-between">
             <div>
-                <gr-button kind="outline">Back</gr-button>
+                <gr-button @onClick="previous()" kind="outline">Back</gr-button> 
             </div>
             <div>
                 <gr-button kind="link">Skip</gr-button>
-                <gr-button kind="primary">Next</gr-button>
+                <gr-button @onClick="next()" kind="primary">Next</gr-button> 
             </div>
         </div>
     </section>

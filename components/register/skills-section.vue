@@ -1,12 +1,17 @@
 <script setup lang="ts">
     import GrButton from '~/components/atoms/gr-button.vue';
+    import GrInput from '~/components/atoms/gr-input.vue';
     import GrSelect from '~/components/atoms/gr-select.vue';
 
     const skills = [{key:'JAVA', value:'Java'},
                     {key:'JAVASCRIPT', value:'JavaScript'},
                     {key:'PHP', value:'PhP'},
                     {key:'KOTLIN', value:'Kotlin'},
-                    {key:'VS', value:'Visual Studio'}]    
+                    {key:'VS', value:'Visual Studio'}];
+                    
+    const emit = defineEmits(['doNext','doPrevious']);
+    const next = () => emit('doNext');
+    const previous = () => emit('doPrevious');                        
 </script>
 
 <template>
@@ -19,24 +24,24 @@
                 </div>
                 <div class="flex flex-col gap-4">
                     <div class="flex gap-2">      
-                        <gr-select id="skill" placeholder="Select a skill" :list="skills"/>            
+                        <gr-input id="skill" placeholder="Type a skill" type="text"/>            
                         <gr-button kind="add" />                                              
                     </div>
                     <div class="flex flex-col items-start gap-4">
-                        <h3>Suggested Skills</h3>
-                        <li v-for="item in skills" class="list-none">
-                            <gr-button :value="item.key" kind="add">{{item.value}}</gr-button>
+                        <h3 class="font-semibold">Registered Skills</h3>
+                        <li v-for="item in skills" class="list-none text-[#00A3FF]">
+                            {{item.value}}
                         </li> 
                     </div>
                 </div>
             </div>
             <div class="flex w-full items-center justify-between">  
                 <div>
-                    <gr-button kind="outline">Back</gr-button>                     
+                    <gr-button @onClick="previous()" kind="outline">Back</gr-button> 
                 </div>
                 <div>
                     <gr-button kind="link">Skip</gr-button> 
-                    <gr-button kind="primary">Next</gr-button> 
+                    <gr-button @onClick="next()" kind="primary">Next</gr-button> 
                 </div>                
             </div>
         </section>

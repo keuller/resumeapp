@@ -29,7 +29,7 @@ defineProps({
     appearance: none;
     background-color: white;
     line-height: inherit;
-    padding: 10px;
+    padding: 10px 10px;
     background-image: url('/img/select-arrow.png');
     background-repeat: no-repeat, repeat;
     background-position: right .7em top 50%, 0 0;
@@ -37,5 +37,6 @@ defineProps({
     background-color: #FFFFFF;
     border: 1px solid #C1C1C1;
     border-radius: 5px;
+    font-size: 13px;
 }
 </style>

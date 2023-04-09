@@ -5,6 +5,10 @@
 
     type CountryView = Record<string,string>;
     const {data} = useFetch<CountryView>('/api/countries');
+
+    const emit = defineEmits(['doNext','doPrevious']);
+    const next = () => emit('doNext');
+    const previous = () => emit('doPrevious');
 </script>
 
 <template>
@@ -25,8 +29,8 @@
                 </div>
             </div>
             <div class="flex w-full items-center px-4 justify-between">        
-                <gr-button kind="outline">Back</gr-button> 
-                <gr-button kind="primary">Next</gr-button> 
+                <gr-button @onClick="previous()" kind="outline">Back</gr-button> 
+                <gr-button @onClick="next()" kind="primary">Next</gr-button> 
             </div>
         </section>
 </template>
