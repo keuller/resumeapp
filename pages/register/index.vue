@@ -8,7 +8,7 @@
     import Availability from  "~/components/register/availability-section.vue"
     import TopBar from "~/components/top-bar.vue"
 
-    const step = ref<number>(6);
+    const step = ref<number>(1);
     const increment = () => step.value = step.value +1;
     const decrement = () => step.value = step.value -1;
 </script>
