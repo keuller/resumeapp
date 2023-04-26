@@ -1,13 +1,37 @@
 <script setup lang="ts">
+    import { genId, getAccount } from '~/lib/browser';
     import { Icons } from '~/lib/icons';
     import GrButton from '~/components/atoms/gr-button.vue';
     import GrCircleButton from '~/components/atoms/gr-circle-button.vue';
     import TopBar from '~/components/top-bar.vue';
     import FooterPage from '~/components/footer-page.vue';
 
+    type RegisterState = {
+        fullName: string,
+        email: string,
+        password: string,
+        confPassword: string
+    }
+
+    const state = reactive<RegisterState>({
+        fullName: '',
+        email: '',
+        password: '',
+        confPassword: ''
+    });
+
     function register() {
         const el = document.getElementById('home');
         el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function doSubmit() {
+        getAccount().create(genId(), state.email, state.password, state.fullName)
+            .then((res) => {
+                console.log(res);
+            }, (err) => {
+                console.error(err);
+            });
     }
 </script>
 
@@ -26,24 +50,27 @@
             <form id="register" class="register-form">
                 <h2 class="text-xl text-slate-700 text-center px-3 leading-8 lg:block">Start now and see!</h2>
 
-                <input type="text" name="full_name"
+                <input v-model="state.fullName"
+                    id="fullName" type="text" name="full_name"
                     placeholder="Full name" maxlength="50"
-                    class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
+                    class="gr-input" />
 
                 <input id="email" type="email" name="full_name"
                     placeholder="E-mail" maxlength="120"
-                    class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
+                    class="gr-input" />
 
                 <input id="password" type="password" name="password"
                     placeholder="Password" maxlength="40"
-                    class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
+                    class="gr-input" />
 
-                <input id="conf_pass" type="password" name="conf_pass"
-                    placeholder="Repeat Password" maxlength="40"
-                    class="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
+                <div class="flex flex-col">
+                    <input id="conf_pass" type="password" name="conf_pass"
+                        placeholder="Repeat Password" maxlength="40"
+                        class="gr-input" />
+                </div>
 
                 <div class="mt-2">
-                    <gr-button kind="primary">
+                    <gr-button kind="primary" @on-click="doSubmit">
                         <span>Register</span>
                     </gr-button>
                 </div>
@@ -140,6 +167,10 @@
 }
 
 .register-form {
-    @apply   z-20 p-10 xs:flex-1 flex flex-col justify-center gap-2 bg-white w-full max-w-[330px] md:max-w-[450px] lg:max-w-[480px] lg:h-[530px] rounded-xl;
+    @apply z-20 p-10 xs:flex-1 flex flex-col justify-center gap-2 bg-white w-full max-w-[330px] md:max-w-[450px] lg:max-w-[480px] lg:h-[530px] rounded-xl;
+}
+
+.gr-input {
+    @apply border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300;
 }
 </style>

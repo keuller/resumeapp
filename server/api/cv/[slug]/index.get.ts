@@ -1,20 +1,20 @@
 import { H3Event } from 'h3';
 import { Query } from 'node-appwrite';
 import { db } from '~/lib/client';
-import type { SkillSet, Job, Project } from '~/types';
+import { Model } from '~/types';
 
 const cfg = useRuntimeConfig();
 const COLLECTION = '640475a2a7b08deb0966';
 
-type SkillSetView = Omit<SkillSet, "oid" | "createdAt">;
-type ProjectView = Omit<Project, "createdAt">;
-type JobView = Omit<Job, "createdAt">;
+type SkillSetView = Omit<Model.SkillSet, "oid" | "personId" | "createdAt">;
+type ProjectView = Omit<Model.Project, "oid" | "personId" | "createdAt">;
+type JobView = Omit<Model.Job, "oid" | "personId" | "createdAt">;
 
 // load all skillset docs accordinly to the person's ID
 async function loadSkillSet(personId: string): Promise<Array<SkillSetView>> {
     const COLL_NAME = '6409ccbad3937a5e7490';
     const res = await db.listDocuments(cfg.DATABASE, COLL_NAME, [
-        Query.equal('person_id', [personId]),
+        Query.equal('person_id', [personId])
     ]);
 
     if (!res || res.total < 1) return [];
@@ -51,8 +51,8 @@ async function loadJobs(personId: string): Promise<Array<JobView>> {
 
     let outcome: JobView[] = [];
     for(const doc of res.documents) {
-        const startDate = new Date(`${doc.job_start}T01:00:00.000Z`);
-        const endDate = (doc.job_end !== null ? new Date(`${doc.job_end}T23:59:00.000Z`) : null);
+        const startDate = new Date(`${doc.job_start}T01:00:00.000Z`).toISOString();
+        const endDate = (doc.job_end !== null ? new Date(`${doc.job_end}T23:59:00.000Z`).toISOString() : null);
         const item: JobView = {
             company: doc.company,
             jobTitle: doc.job_title,

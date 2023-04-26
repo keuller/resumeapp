@@ -1,11 +1,56 @@
 import { BASE_API, HEADERS } from '~/lib/utils';
-import { db } from '~/lib/client';
+import { db, genId } from '~/lib/client';
 import { Model } from '~/types';
 
 const cfg = useRuntimeConfig();
 
+export type AddPersonRequest = {
+    fullName: string,
+    email: string
+};
+
+export type UpdPersonRequest = Partial<Model.Person>;
+
 export namespace Person {
     const COLLECTION = '640475a2a7b08deb0966';
+
+    export function add(data: AddPersonRequest): Promise<{oid:string, message: string}> {
+        const oid = genId();
+        const names = data.fullName.split(' ');
+        return db.createDocument(cfg.DATABASE, COLLECTION, oid, {
+            firstName: names[0],
+            lastName: names[1],
+            slug: `${names[0]}.${names[1]}-42`,
+            email: data.email,
+            job_title: undefined,
+            avatar: undefined,
+            created_at: new Date()
+        }).then(res => {
+            return { oid: res.$id, message: 'Person has been added.' }
+        });
+    }
+
+    export function updateSocialMedias(oid: string, data: UpdPersonRequest): Promise<{message: string}> {
+        return db.updateDocument(cfg.DATABASE, COLLECTION, oid, {
+            linkedin: data.linkedIn,
+            github: data.github,
+            twitter: data.twitter,
+            gitlab: data.gitlab,
+            updated_at: new Date()
+        }).then(_res => {
+            return { message: 'Person has been updated.' }
+        });
+    }
+
+    export function updateInfo(oid: string, data: UpdPersonRequest) {
+        return db.updateDocument(cfg.DATABASE, COLLECTION, oid, {
+            job_title: data.jobTitle,
+            avatar: data.avatar,
+            updated_at: new Date()
+        }).then(_res => {
+            return { message: 'Person has been updated.' }
+        })
+    }
 
     export function sendEmailVerification(userId: string, jwt: string): Promise<Record<string, string>> {
         return fetch(`${BASE_API}/v1/account/verification`, {

@@ -1,4 +1,12 @@
 export namespace Model {
+    export type ResultMessage = {
+        message: string,
+    }
+
+    export type CreateResultMessage = ResultMessage & {
+        oid: string,
+    }
+
     export type Person = {
         oid: string,
         firstName: string,
@@ -7,7 +15,6 @@ export namespace Model {
         slug: string,
         jobTitle: string,
         avatar: string,
-        jobTitle: string,
         linkedIn: string,
         github: string,
         gitlab: string,

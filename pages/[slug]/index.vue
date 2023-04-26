@@ -14,7 +14,7 @@
     const mailTo = ref<string>('');
     const avatar = ref<string>(Icons.EMPTY_AVATAR);
 
-    const { data, pending } = useAsyncData('resume', () => $fetch(`/api/people/${route.params.slug}`));
+    const { data, pending } = useAsyncData('resume', () => $fetch(`/api/cv/${route.params.slug}`));
 
     const doShare = async () => {
         const shareLink = {
@@ -90,7 +90,7 @@
             </div>
         </header>
 
-        <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4">
+        <div class="flex flex-1 xs:w-full lg:w-[990px] lg:mx-auto gap-4 mb-2 lg:mb-4">
             <aside class="w-72 hidden lg:block">
                 <div class="flex flex-col gap-2 bg-slate-100p-2">
 
