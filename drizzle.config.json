@@ -1,0 +1,5 @@
+{
+    "out": "./data/migrations",
+    "schema": "./app/usescases/**/entity.*.ts",
+    "breakpoints": false
+}

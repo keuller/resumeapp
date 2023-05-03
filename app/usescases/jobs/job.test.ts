@@ -1,8 +1,8 @@
 import { test, describe, expect } from 'vitest';
 import type { ServiceFail, ServiceSuccess } from "~/lib/serviceResult.server";
-import { Job } from "./model";
+import { JobService, type JobModel } from "~/usescases/jobs";
 
-const createJob: Job.Model = {
+const createJob: JobModel.JobCreateRequest = {
     company: 'Acme Test Inc',
     personId: '97cbc5dd-4e34-43a1-ac1e-65927c1d9473',
     jobTitle: 'Test Job',
@@ -10,18 +10,22 @@ const createJob: Job.Model = {
     startDate: new Date()
 }
 
-describe('job.model', () => {
+describe('jobs - use cases', () => {
+    let oid = '';
 
-    test('Create valid Job', () => {
-        const result = Job.validate(createJob);
+    test('Create a new Job', async () => {
+        const result = await JobService.addJob(createJob);
         expect(result.kind).toBe('success');
 
-        const outcome = result as ServiceSuccess<Job.Model>;
+        const outcome = result as ServiceSuccess<JobModel.JobResponse>;
         expect(outcome.value).not.toBeNull();
+        expect(outcome.value.oid).not.toBeNull();
+        oid = outcome.value.oid;
+        console.log('record id:', outcome.value, oid);
     });
 
-    test('Fail to create Job', () => {
-        const result = Job.validate({
+    test('Fail to create Job', async () => {
+        const result = await JobService.addJob({
             company: 'Acme Test Inc',
             personId: '',
             jobTitle: '',
@@ -33,5 +37,13 @@ describe('job.model', () => {
         const outcome = result as ServiceFail;
         expect(outcome.reason).not.toBeNull();
         expect(outcome.reason.mode).toBe('Number must be greater than or equal to 1');
+    });
+
+    test('remove Remove Job', async () => {
+        const result = await JobService.remove(oid);
+        expect(result.kind).toBe('success');
+
+        const outcome = result as ServiceSuccess<JobModel.JobResponse>;
+        expect(outcome.value).not.toBeNull();
     });
 });

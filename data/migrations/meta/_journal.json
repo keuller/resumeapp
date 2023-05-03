@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1683135693154,
+      "tag": "0000_tidy_mimic",
+      "breakpoints": false
+    }
+  ]
+}

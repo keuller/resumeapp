@@ -6,13 +6,19 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { AppDS } from "./lib/db.server";
+import { db } from "./lib/db.server";
 import { json } from "@remix-run/node";
 
 export async function loader() {
-    await AppDS.initialize();
-    console.log('Database connection was initialized');
-    return json({});
+    try {
+        await db.initialize();
+        console.log('Database connection was initialized');
+        return json({}, { status: 200 });
+    } catch(err) {
+        const error = (err as Error).message;
+        console.error('[ERROR]', error);
+        return json({ error }, { status: 500 })
+    }
 }
 
 export default function App() {
