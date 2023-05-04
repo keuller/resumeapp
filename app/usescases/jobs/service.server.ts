@@ -34,7 +34,7 @@ export async function addJob(data: JobCreateRequest): Promise<ServiceResult<JobR
 
     return createSuccess({
         message: "Job has been added.",
-        oid: res.fields.oid
+        oid: job.oid
     });
 }
 
