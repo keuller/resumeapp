@@ -15,7 +15,7 @@ const updateSkill: SkillModel.SkillUpdateRequest = {
 }
 
 describe('Skills - use cases', () => {
-    let oid = '';
+    let _oid = '';
 
     test('Create a new skill', async () => {
         const result = await SkillService.addSkill(createSkill);
@@ -24,18 +24,29 @@ describe('Skills - use cases', () => {
         const outcome = result as ServiceSuccess<SkillModel.SkillResponse>;
         expect(outcome.value).not.toBeNull();
         expect(outcome.value.oid).not.toBeNull();
-        oid = outcome.value.oid;
+        _oid = outcome.value.oid;
 
-    })
+    });
 
     test('Update existing skill', async () => {
-        updateSkill.oid = oid;
-        console.log(updateSkill)
-        const result = await SkillService.updateSkill(updateSkill);
+        const result = await SkillService.updateSkill({
+            oid: _oid,
+            skillName: 'JavaScript',
+            skillLevel: 5
+        });
         expect(result.kind).toBe('success');
 
         const outcome = result as ServiceSuccess<SkillModel.SkillResponse>;
         expect(outcome.value).not.toBeNull();
-        expect(outcome.value).toBe('Skill has been updated.');
+        expect(outcome.value.message).eq('Skill has been updated.');
+    })
+
+    test('Delete existing skill', async () => {
+        const result = await SkillService.deleteSkill(_oid);
+        expect(result.kind).toBe('success');
+
+        const outcome = result as ServiceSuccess<SkillModel.SkillResponse>;
+        expect(outcome.value).not.toBeNull();
+        expect(outcome.value.message).eq('Skill has been removed.');
     })
 })
