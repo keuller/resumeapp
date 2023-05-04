@@ -21,7 +21,6 @@ describe('jobs - use cases', () => {
         expect(outcome.value).not.toBeNull();
         expect(outcome.value.oid).not.toBeNull();
         oid = outcome.value.oid;
-        console.log('record id:', outcome.value, oid);
     });
 
     test('Fail to create Job', async () => {
@@ -45,5 +44,6 @@ describe('jobs - use cases', () => {
 
         const outcome = result as ServiceSuccess<JobModel.JobResponse>;
         expect(outcome.value).not.toBeNull();
+        expect(outcome.value.message).eq("Job has been removed.")
     });
 });
