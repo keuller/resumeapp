@@ -1,9 +1,10 @@
+import { eq } from 'drizzle-orm';
 import { v4 as uuidv4 } from 'uuid';
 import { db } from '~/lib/db.server';
 import { validate, isSuccess } from "~/lib/schema.server";
 import {  createSuccess,createFail, ServiceFail, ServiceResult } from "~/lib/serviceResult.server";
 import { SkillEntity } from './entity.server';
-import { SkillCreateRequest, SkillCreateSchema, SkillResponse } from "./validator";
+import { SkillCreateRequest, SkillCreateSchema, SkillResponse, SkillUpdateRequest, SkillUpdateSchema } from "./validator";
 
 export async function addSkill(data: SkillCreateRequest): Promise<ServiceResult<SkillResponse>>{
     const result = validate(SkillCreateSchema, data);
@@ -25,5 +26,24 @@ export async function addSkill(data: SkillCreateRequest): Promise<ServiceResult<
     return createSuccess({
         message: "Skill has been added",
         oid: res.fields.oid
+    });
+}
+
+export async function updateSkill(data: SkillUpdateRequest): Promise<ServiceResult<SkillResponse>>{
+    const result = validate(SkillUpdateSchema, data);
+    if (!isSuccess(result)) {
+        return result as ServiceFail;
+    }
+
+    const res = await db.update(SkillEntity)
+    .set({skillName: data.skillName, skillLevel: data.skillLevel})
+    .where(eq(SkillEntity.oid, data.oid));
+
+    if(res.rowCount < 1) {
+        return createFail({ "message": "Fail to update the Skill record" })
+    }
+
+    return createSuccess({
+        message: "Skill has been updated."
     });
 }
