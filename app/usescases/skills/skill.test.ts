@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { ServiceSuccess } from "~/lib/serviceResult.server";
+import { ServiceFail, ServiceSuccess } from "~/lib/serviceResult.server";
 import { SkillService, type SkillModel } from "~/usescases/skills";
 
 const createSkill: SkillModel.SkillCreateRequest = {
@@ -25,6 +25,21 @@ describe('Skills - use cases', () => {
         expect(outcome.value).not.toBeNull();
         expect(outcome.value.oid).not.toBeNull();
         _oid = outcome.value.oid;
+
+    });
+
+    test('Fail to create Skill', async () => {
+        const result = await SkillService.addSkill({
+            personId: '97cbc5dd-4e34-43a1-ac1e-65927c1d9473',
+            skillName: 'Js',
+            skillLevel: 0
+        });
+        expect(result.kind).toBe('fail');
+
+        const outcome = result as ServiceFail;
+
+        expect(outcome.reason).not.toBeNull();
+        expect(outcome.reason.skillLevel).toBe('Number must be greater than or equal to 1')
 
     });
 

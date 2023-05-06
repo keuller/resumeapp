@@ -21,7 +21,6 @@ export async function addJob(data: JobCreateRequest): Promise<ServiceResult<JobR
         return result as ServiceFail;
     }
 
-    // console.log('mode:', process.env.NODE_ENV);
     const job = Object.assign(data, {
         oid: uuidv4(),
         createdAt: new Date()

@@ -30,7 +30,6 @@ export async function addSkill(data: SkillCreateRequest): Promise<ServiceResult<
 }
 
 export async function updateSkill(data: SkillUpdateRequest): Promise<ServiceResult<SkillResponse>> {
-    console.log("Information being sent to updateSkill: " + data);
     const result = validate(SkillUpdateSchema, data);
     if (!isSuccess(result)) {
         return result as ServiceFail;
@@ -45,7 +44,8 @@ export async function updateSkill(data: SkillUpdateRequest): Promise<ServiceResu
     }
 
     return createSuccess({
-        message: "Skill has been updated."
+        message: "Skill has been updated.",
+        oid: data.oid
     });
 }
 
