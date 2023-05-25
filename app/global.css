@@ -224,3 +224,42 @@ select, tr, td, th {
 .checkbox input[type="checkbox"]:checked::after {
     transform: scale(1);
 }
+
+.box-title {
+    @apply font-bold text-gray-400 text-sm tracking-wide p-1 mb-3 uppercase;
+}
+
+li.item {
+    background-image: url('/img/circle-item.svg');
+    background-position: 0 7px;
+    padding-left: .75rem;
+    background-repeat: no-repeat;
+    background-size: 5px 5px;
+    color: #FF9801;
+}
+
+.gr-select {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    appearance: none;
+    background-color: white;
+    line-height: inherit;
+    padding: 10px 10px;
+    background-image: url('/img/select-arrow.png');
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #C1C1C1;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.bg-hero {
+    @apply absolute inset-0 z-10 bg-[url('/img/hero-desktop.webp')] opacity-75 blur-sm bg-cover bg-center;
+}
+
+.register-form {
+    @apply z-20 p-10 flex flex-col justify-center gap-2 bg-white w-full max-w-[330px] md:max-w-[450px] lg:max-w-[480px] lg:h-[530px] rounded-xl;
+}
