@@ -151,3 +151,76 @@ select, tr, td, th {
     background-repeat: no-repeat;
     min-width: 100px;
 }
+
+.radio {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    padding-left: 24px;
+}
+
+.radio input[type="radio"] {
+    display: none;
+}
+
+.radio span {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    left: 0;
+}
+
+.radio span:after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary);
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 250ms ease-in-out 0s;
+}
+
+.radio input[type="radio"]:checked ~ span:after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+
+.checkbox input[type="checkbox"] {
+    appearance: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid var(--primary);
+    border-radius: 3px;
+}
+
+.checkbox input[type="checkbox"]::after {
+    content: url('/img/check.png');
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    transform: scale(0);
+    transition: 250ms ease-in-out 0s;
+}
+
+.checkbox input[type="checkbox"]:checked::after {
+    transform: scale(1);
+}
