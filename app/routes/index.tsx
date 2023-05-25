@@ -1,4 +1,5 @@
 import type { V2_MetaFunction } from "@remix-run/node";
+import { Badge } from "~/components/basic/Badge";
 import Button from "~/components/basic/Button";
 
 export const meta: V2_MetaFunction = () => {
@@ -12,9 +13,16 @@ export default function Index() {
 
             <div className="flex gap-2">
                 <Button label="Primary"
-                    kind="primary" click={() => console.log('click primary')}/>
+                    kind="primary"
+                    click={() => console.log('click primary')}/>
                 <Button label="Secondary" kind="secondary" />
                 <Button label="Inverted" kind="inverted" />
+            </div>
+
+            <div className="flex gap-2">
+                <Badge name="React" />
+                <Badge name="Remix" />
+                <Badge name="TailwindCSS" />
             </div>
         </div>
     );
