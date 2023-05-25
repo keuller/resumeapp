@@ -30,6 +30,16 @@ export default function Index() {
             </div>
 
             <Loader />
+
+            <div className="flex flex-col gap-2 px-8">
+                <input type="text" className="input" placeholder="Full name"/>
+
+                <select className="select">
+                    <option value="1">Opcao 1</option>
+                    <option value="2">Opcao 2</option>
+                    <option value="3">Opcao 3</option>
+                </select>
+            </div>
         </div>
     );
 }

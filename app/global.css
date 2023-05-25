@@ -1,5 +1,6 @@
 *,
-*::before, *::after {
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,7 +11,19 @@
 @tailwind utilities;
 
 body {
+    --primary: #10A9FF;
+    --primary-light: #CCEDFF;
+    --secondary: white;
+    --inverted: #0D81C2;
+    --grey: #999999;
     font-size: inherit;
+}
+
+body, table,
+button, a, p,
+input, div, span,
+select, tr, td, th {
+  font-family: 'Open Sans', ui-sans-serif, system-ui;
 }
 
 .lds-roller {
@@ -18,82 +31,123 @@ body {
     position: relative;
     width: 80px;
     height: 80px;
-  }
-  .lds-roller div {
+}
+
+.lds-roller div {
     animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     transform-origin: 40px 40px;
-  }
-  .lds-roller div:after {
+}
+
+.lds-roller div:after {
     content: " ";
     display: block;
     position: absolute;
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #10A9FF;
+    background: #10a9ff;
     margin: -4px 0 0 -4px;
-  }
-  .lds-roller div:nth-child(1) {
+}
+.lds-roller div:nth-child(1) {
     animation-delay: -0.036s;
-  }
-  .lds-roller div:nth-child(1):after {
+}
+.lds-roller div:nth-child(1):after {
     top: 63px;
     left: 63px;
-  }
-  .lds-roller div:nth-child(2) {
+}
+.lds-roller div:nth-child(2) {
     animation-delay: -0.072s;
-  }
-  .lds-roller div:nth-child(2):after {
+}
+.lds-roller div:nth-child(2):after {
     top: 68px;
     left: 56px;
-  }
-  .lds-roller div:nth-child(3) {
+}
+.lds-roller div:nth-child(3) {
     animation-delay: -0.108s;
-  }
-  .lds-roller div:nth-child(3):after {
+}
+.lds-roller div:nth-child(3):after {
     top: 71px;
     left: 48px;
-  }
-  .lds-roller div:nth-child(4) {
+}
+.lds-roller div:nth-child(4) {
     animation-delay: -0.144s;
-  }
-  .lds-roller div:nth-child(4):after {
+}
+.lds-roller div:nth-child(4):after {
     top: 72px;
     left: 40px;
-  }
-  .lds-roller div:nth-child(5) {
+}
+.lds-roller div:nth-child(5) {
     animation-delay: -0.18s;
-  }
-  .lds-roller div:nth-child(5):after {
+}
+.lds-roller div:nth-child(5):after {
     top: 71px;
     left: 32px;
-  }
-  .lds-roller div:nth-child(6) {
+}
+.lds-roller div:nth-child(6) {
     animation-delay: -0.216s;
-  }
-  .lds-roller div:nth-child(6):after {
+}
+.lds-roller div:nth-child(6):after {
     top: 68px;
     left: 24px;
-  }
-  .lds-roller div:nth-child(7) {
+}
+.lds-roller div:nth-child(7) {
     animation-delay: -0.252s;
-  }
-  .lds-roller div:nth-child(7):after {
+}
+.lds-roller div:nth-child(7):after {
     top: 63px;
     left: 17px;
-  }
-  .lds-roller div:nth-child(8) {
+}
+.lds-roller div:nth-child(8) {
     animation-delay: -0.288s;
-  }
-  .lds-roller div:nth-child(8):after {
+}
+.lds-roller div:nth-child(8):after {
     top: 56px;
     left: 12px;
-  }
-  @keyframes lds-roller {
+}
+@keyframes lds-roller {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
+
+.input,
+.select {
+    height: 40px;
+    padding: 12px 8px;
+    border-radius: 5px;
+    border: 1px solid #c1c1c1;
+    outline: none;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.input:focus,
+.select:focus {
+    border: 1px solid var(--primary);
+}
+
+.input::placeholder {
+    color: var(--grey);
+}
+
+.select {
+    cursor: pointer;
+    appearance: none;
+    padding-right: 4px;
+    background-image: linear-gradient(
+            45deg,
+            transparent 50%,
+            var(--primary) 50%
+        ),
+        linear-gradient(135deg, var(--primary) 50%, transparent 50%),
+        linear-gradient(to right, white, white);
+    background-position: calc(100% - 15px) calc(1.2em + 2px),
+        calc(100% - 10px) calc(1.2em + 2px), 100% 0;
+    background-size: 5px 5px, 5px 5px, 2.5em 3.2em;
+    background-repeat: no-repeat;
+    min-width: 100px;
+}
