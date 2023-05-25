@@ -1,14 +1,21 @@
 import type { V2_MetaFunction } from "@remix-run/node";
+import Button from "~/components/basic/Button";
 
 export const meta: V2_MetaFunction = () => {
-  return [{ title: "GetRezume" }];
+    return [{ title: "GetRezume" }];
 };
 
 export default function Index() {
-  return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
+    return (
+        <div className="flex flex-col gap-2">
+            <h1>Welcome to Remix</h1>
 
-    </div>
-  );
+            <div className="flex gap-2">
+                <Button label="Primary"
+                    kind="primary" click={() => console.log('click primary')}/>
+                <Button label="Secondary" kind="secondary" />
+                <Button label="Inverted" kind="inverted" />
+            </div>
+        </div>
+    );
 }

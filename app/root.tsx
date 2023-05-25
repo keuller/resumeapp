@@ -9,6 +9,12 @@ import {
 import { db } from "./lib/db.server";
 import { json } from "@remix-run/node";
 
+import globalStyles from '~/global.css';
+
+export const links = () => [
+    { rel: 'stylesheet', href: globalStyles }
+]
+
 export async function loader() {
     try {
         await db.initialize();
