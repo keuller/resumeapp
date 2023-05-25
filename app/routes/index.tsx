@@ -1,6 +1,7 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 import { Badge } from "~/components/basic/Badge";
 import Button from "~/components/basic/Button";
+import { Loader } from "~/components/basic/Loader";
 
 export const meta: V2_MetaFunction = () => {
     return [{ title: "GetRezume" }];
@@ -24,6 +25,8 @@ export default function Index() {
                 <Badge name="Remix" />
                 <Badge name="TailwindCSS" />
             </div>
+
+            <Loader />
         </div>
     );
 }
