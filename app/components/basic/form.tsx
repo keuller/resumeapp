@@ -2,14 +2,13 @@
 export interface RadioProps {
     label: string;
     name: string;
-    value: string;
     checked?: boolean;
 }
 
-export function Radio({ label, name, value, checked }: RadioProps) {
+export function Radio({ label, name, checked }: RadioProps) {
     return (
         <label className="radio">
-            <input type="radio" name={name} value={value} defaultChecked={checked} />
+            <input type="radio" name={name} defaultChecked={checked} />
             {label}
             <span></span>
         </label>
@@ -19,14 +18,13 @@ export function Radio({ label, name, value, checked }: RadioProps) {
 export interface CheckBoxProps {
     label: string;
     name: string;
-    value: string;
     checked?: boolean;
 }
 
-export function CheckBox({ label, name, value, checked }: CheckBoxProps) {
+export function CheckBox({ label, name, checked }: CheckBoxProps) {
     return (
         <label className="checkbox">
-            <input type="checkbox" name={name} value={value} defaultChecked={checked} />
+            <input type="checkbox" name={name} defaultChecked={checked} />
             {label}
         </label>
     )

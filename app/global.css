@@ -26,6 +26,10 @@ select, tr, td, th {
   font-family: 'Open Sans', ui-sans-serif, system-ui;
 }
 
+a.link {
+    color: var(--primary);
+}
+
 .lds-roller {
     display: inline-block;
     position: relative;
