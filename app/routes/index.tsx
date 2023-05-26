@@ -3,6 +3,7 @@ import { Badge } from "~/components/basic/Badge";
 import { Button, CircleButton } from "~/components/basic/Button";
 import { Loader } from "~/components/basic/Loader";
 import { CheckBox, Radio } from "~/components/basic/form";
+import TopBar from "~/components/templates/TopBar";
 
 export const meta: V2_MetaFunction = () => {
     return [{ title: "GetRezume" }];
@@ -11,7 +12,7 @@ export const meta: V2_MetaFunction = () => {
 export default function Index() {
     return (
         <div className="flex flex-col gap-4">
-            <h1>Welcome to Remix</h1>
+            <TopBar />
 
             <div className="flex gap-2">
                 <Button label="Primary"
