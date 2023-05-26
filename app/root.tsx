@@ -17,17 +17,17 @@ export const links = () => [
     { rel: 'stylesheet', href: globalStyles }
 ]
 
-export async function loader() {
-    try {
-        await db.initialize();
-        console.log('Database connection was initialized');
-        return json({}, { status: 200 });
-    } catch(err) {
-        const error = (err as Error).message;
-        console.error('[ERROR]', error);
-        return json({ error }, { status: 500 })
-    }
-}
+// export async function loader() {
+//     try {
+//         await db.select().from()
+//         console.log('Database connection was initialized');
+//         return json({}, { status: 200 });
+//     } catch(err) {
+//         const error = (err as Error).message;
+//         console.error('[ERROR]', error);
+//         return json({ error }, { status: 500 })
+//     }
+// }
 
 export default function App() {
   return (
