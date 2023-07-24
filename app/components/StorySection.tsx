@@ -1,4 +1,4 @@
-import { GrButton } from "./basic/GrButton";
+import { Button } from "./basic/Button";
 
 function register() {
     const el = document.getElementById('home');
@@ -31,7 +31,7 @@ export default function StorySection(){
         </div>
 
         <div className="w-auto xs:w-[260px]">
-          <GrButton kind="primary" label="Register" onClick={() => register()}/>
+          <Button kind="primary" label="Register" click={() => register()}/>
         </div>
       </section>
     )

@@ -11,13 +11,13 @@ export default function () {
     return (
         <div>
             <TopBar />
-            {/* <ContactSection />
-            <LocationSection />
-            <EducationSection />
-            <ExperienceSection />
-            <SkillSection /> */}
-            <PrivacySection />
-            {/* <AvailabilitySection /> */}
+            <AvailabilitySection />
+            {/* <ContactSection />   */}
+            {/* <LocationSection /> */}
+            {/* <EducationSection /> */}
+            {/* <ExperienceSection /> */}
+            {/* <SkillSection />  */}
+            {/* <PrivacySection /> */}
         </div>
     )
 }

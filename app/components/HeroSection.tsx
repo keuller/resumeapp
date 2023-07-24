@@ -1,6 +1,5 @@
 import { Icons } from "~/lib/icons";
-
-import { GrButton, GrCircleButton } from "./basic/GrButton";
+import { Button, CircleButton } from "./basic/Button";
 
 export default function HeroSection() {
     return (
@@ -32,7 +31,7 @@ export default function HeroSection() {
                     className="border border-gray-200 leading-4 rounded-md px-2 py-3 outline-none focus:border-blue-300" />
 
                 <div className="flex justify-center mt-2">
-                    <GrButton kind="primary" label="Register" />
+                    <Button kind="primary" label="Register" />
                 </div>
 
                 <div className="relative flex flex-col mt-3 mb-3 px-10">
@@ -44,13 +43,9 @@ export default function HeroSection() {
                 </div>
 
                 <div className="flex gap-4 items-center justify-center">
-                    <GrCircleButton url="#">
-                        <img src={Icons.GOOGLE} alt="edit" width="23" />
-                    </GrCircleButton>
+                    <CircleButton icon={Icons.GOOGLE}/>
 
-                    <GrCircleButton url="#">
-                        <img src={Icons.GITHUB} alt="edit" width="23" />
-                    </GrCircleButton>
+                    <CircleButton icon={Icons.GITHUB}/>
                 </div>
             </form>
         </section>

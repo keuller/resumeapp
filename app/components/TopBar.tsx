@@ -4,7 +4,7 @@ import { Icons } from '~/lib/icons';
 
 export default function TopBar() {
     return (
-        <header id="topbar" className="flex bg-white sticky -top-1 py-2 z-50">
+        <header id="topbar" className="flex bg-slate-50 sticky -top-1 py-2 z-50">
             <div className="flex flex-1 items-center px-3 lg:px-16 justify-between">
                 <Link to="/">
                     <img src={Icons.LOGO} alt="logo" />

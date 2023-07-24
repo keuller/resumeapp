@@ -1,6 +1,5 @@
-import { GrButton } from "../atoms/GrButton"
-import GrInput from "../atoms/GrInput"
-import GrSelect from "../atoms/GrSelect"
+import { Button } from "../basic/Button"
+import Select, { Input } from "../basic/form"
 
 const data = [{key: "BR", value: "Brazil"},{key: "Us", value: "United States"}]
 
@@ -15,16 +14,16 @@ export default function LocationSection(){
                 </div>
                 <div className="flex flex-col gap-4">
                     <div>      
-                        <GrSelect id="country" placeholder="Country" list={data} />                                           
+                        <Select id="country" placeholder="Select a country" list={data} />                                           
                     </div>
                     <div className="flex flex-col">
-                        <GrInput id="city" kind="primary" type="text" placeholder="City" />                                      
+                        <Input id="city" kind="primary" type="text" placeholder="City" />                                      
                     </div>
                 </div>
             </div>
             <div className="flex w-full items-center px-4 justify-between">        
-                <GrButton kind="outline" label="Back" />
-                <GrButton kind="primary" label="Next" /> 
+                <Button kind="secondary" label="Back" />
+                <Button kind="primary" label="Next" /> 
             </div>
         </section>
     )

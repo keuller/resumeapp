@@ -1,5 +1,5 @@
-import { GrButton } from "../basic/GrButton"
-import { GrRadioInput } from "../basic/GrInput"
+import { Button } from "../basic/Button"
+import { Radio } from "../basic/form"
 
 export default function PrivacySection() {
     return (
@@ -12,13 +12,14 @@ export default function PrivacySection() {
                 </div>
                 <div className="flex flex-col gap-4 px-5">
                     <div className="flex items-start gap-2">
-                        <GrRadioInput id="public" name="privacy" value="public"/>
+                        
+
                         <div className="flex flex-col">
                             <div className="flex gap-2">
-                                <label htmlFor="public">Public</label>
-                                <img src="/img/lock_open.png" className="w-5 h-5"/>
+                                <Radio label="Public" name="privacy" value="public"/>
+                                <img src="/img/lock_open.png" className="w-5 h-5"/>                            
                             </div>
-                            <p className="text-xs text-slate-400 font-normal">
+                            <p className="text-xs text-slate-400 font-normal pl-6">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tortor neque, finibus a
                                 condimentum eu, aliquam sit amet sapien. Fusce vel sapien molestie, sagittis enim non, luctus
                                 purus.
@@ -27,13 +28,12 @@ export default function PrivacySection() {
                     </div>
 
                     <div className="flex items-start gap-2">
-                        <GrRadioInput id="private" name="privacy" value="private"/>
                         <div className="flex flex-col">
                             <div className="flex gap-2">
-                                <label htmlFor="private">Private</label>
+                                <Radio label="Private" name="privacy" value="private"/>
                                 <img src="/img/lock_closed.png" className="w-5 h-5"/>
                             </div>
-                            <p className="text-xs text-slate-400 font-normal">
+                            <p className="text-xs text-slate-400 font-normal pl-6">
                                 Fusce vel sapien molestie, sagittis enim non, luctus purus. Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Phasellus tortor neque, finibus a condimentum.
                             </p>
@@ -44,11 +44,11 @@ export default function PrivacySection() {
             </div>
             <div className="flex w-full items-center px-4 justify-between">
                 <div>
-                    <GrButton kind="outline" label="Back"/>
+                    <Button kind="secondary" label="Back"/>
             </div>
             <div>
-                <GrButton kind="link" label="Skip"/>
-                <GrButton kind="primary" label="Next"/>
+                <Button kind="link" label="Skip"/>
+                <Button kind="primary" label="Next"/>
         </div>
         </div >
     </section >

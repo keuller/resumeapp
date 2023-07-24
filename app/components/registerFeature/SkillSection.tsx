@@ -1,5 +1,5 @@
-import { GrButton } from "../atoms/GrButton"
-import GrInput from "../atoms/GrInput"
+import { Button } from "../basic/Button";
+import { Input } from "../basic/form";
 
 const skills = [{key:'JAVA', value:'Java'},
 {key:'JAVASCRIPT', value:'JavaScript'},
@@ -18,8 +18,8 @@ export default function SkillSection(){
             </div>
             <div className="flex flex-col gap-4">
                 <div className="flex gap-2">      
-                    <GrInput id="skill" placeholder="Type a skill" type="text"/>            
-                    <GrButton kind="add" />                                              
+                    <Input id="skill" placeholder="Type a skill" type="text"/>            
+                    <Button label="Add" kind="primary" />                                              
                 </div>
                 <div className="flex flex-col items-start gap-4">
                     <h3 className="font-semibold">Registered Skills</h3>
@@ -33,11 +33,11 @@ export default function SkillSection(){
         </div>
         <div className="flex w-full items-center justify-between">  
             <div>
-                <GrButton kind="outline" label="Back"/>
+                <Button kind="secondary" label="Back"/>
             </div>
             <div>
-                <GrButton kind="link" label="Skip"/>
-                <GrButton kind="primary" label="Next"/>
+                <Button kind="link" label="Skip"/>
+                <Button kind="primary" label="Next"/>
             </div>                
         </div>
     </section>

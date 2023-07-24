@@ -1,6 +1,5 @@
-import { GrButton } from "../basic/GrButton"
-import { GrInput } from "../basic/GrInput"
-import GrSelect from "../basic/GrSelect"
+import { Button } from "../basic/Button"
+import { CheckBox, Input, Select } from "../basic/form"
 
 const educationLevels = [{ key: 'HS', value: 'High School degree' },
                          { key: 'TC', value: 'Technical degree' },
@@ -19,29 +18,28 @@ export default function EducationSection() {
                 </div>
                 <div className="flex flex-col gap-4">
                     <div className="flex flex-col gap-4">
-                        <GrSelect id="education_level" placeholder="Education" list={educationLevels} />
-                        <GrInput id="education_country" placeholder="Country" type="text" />
-                        <GrInput id="education_course" placeholder="Course" type="text" />
+                        <Select id="education_level" placeholder="Education" list={educationLevels} />
+                        <Input id="education_country" placeholder="Country" type="text" />
+                        <Input id="education_course" placeholder="Course" type="text" />
                     </div>
                     <div className="flex gap-4 items-end">
                         <div className="flex-1">
                             <label htmlFor="education_year" className="font-semibold text-xs text-slate-400">Graduation year</label>
-                            <GrInput id="education_year" type="month" />
+                            <Input id="education_year" type="month" />
                         </div>
                         <div className="flex-1 flex items-center gap-2 pb-3">
-                            <input id="education_ongoing" type="checkbox" />
-                            <label htmlFor="education_ongoing" className="text-sm"> On going</label>
+                            <CheckBox label= "On going" name="education_ongoing" value="education_ongoing" />
                         </div>
                     </div>
                 </div>
             </div>
             <div className="flex w-full items-center px-4 justify-between">
                 <div>
-                    <GrButton kind="outline" label="Back" />
+                    <Button kind="secondary" label="Back" />
                 </div>
                 <div>
-                    <GrButton kind="link" label="Skip" />
-                    <GrButton kind="primary" label="Next" />
+                    <Button kind="link" label="Skip" />
+                    <Button kind="primary" label="Next" />
                 </div>
             </div>
         </section>

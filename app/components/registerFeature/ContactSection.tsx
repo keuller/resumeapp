@@ -1,5 +1,6 @@
-import { GrButton } from "~/components/atoms/GrButton"
-import GrInput from "~/components/atoms/GrInput"
+import { Button } from "../basic/Button";
+import { Input } from "../basic/form";
+
 
 export default function contactSection(){
     return(
@@ -13,7 +14,7 @@ export default function contactSection(){
             <div className="flex flex-col gap-2">
                 <div>
                     <label className="font-semibold text-sm text-slate-400">(Optional)</label>
-                    <GrInput id="phone_number" placeholder="Phone number" type="number" kind="primary"/>
+                    <Input id="phone_number" placeholder="Phone number" type="number" kind="primary"/>
                 </div>
                 <div>
                     <input id="show_phone" type="checkbox"/>
@@ -27,8 +28,8 @@ export default function contactSection(){
             </div>
         </div>
         <div className="flex w-full items-center px-4 justify-end">        
-            <GrButton label="Skip" kind="link"/>
-            <GrButton label="Next" kind="primary"/>
+            <Button label="Skip" kind="link"/>
+            <Button label="Next" kind="primary"/>
         </div>
     </section>
     )

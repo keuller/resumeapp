@@ -1,4 +1,4 @@
-import GrBadge from "./basic/GrBadge"
+import { Badge } from "./basic/Badge"
 
 export type ProjectItemProps = {
     name: string,
@@ -13,7 +13,7 @@ export default function ProjectItem( {name, description, stack}: ProjectItemProp
         <p className="text-sm leading-5 text-slate-500">{description}</p>
         <div className="flex flex-wrap gap-2 py-2">
             {stack.map( (item,index) => (
-                <GrBadge name={item} key={index} />
+                <Badge name={item} key={index} />
             ))}
         </div>
     </div>
